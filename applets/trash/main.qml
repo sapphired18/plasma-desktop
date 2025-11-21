@@ -43,11 +43,6 @@ PlasmoidItem {
     Plasmoid.backgroundHints: PlasmaCore.Types.NoBackground
     Plasmoid.icon: {
         let iconName = (hasContents ? "user-trash-full" : "user-trash");
-
-        if (inPanel) {
-            return iconName += "-symbolic";
-        }
-
         return iconName;
     }
     Plasmoid.status: hasContents ? PlasmaCore.Types.ActiveStatus : PlasmaCore.Types.PassiveStatus
