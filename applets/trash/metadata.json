@@ -107,7 +107,7 @@
         "EnabledByDefault": false,
         "Icon": "user-trash",
         "License": "GPL-2.0+",
-        "Name": "Trashcan",
+        "Name": "Trashcan - Non Symbolic",
         "Name[af]": "Gemors ",
         "Name[ar]": "سلّة المهملات",
         "Name[ast]": "Papelera",
@@ -200,6 +200,6 @@
     "X-Plasma-NotificationArea": "true",
     "X-Plasma-NotificationAreaCategory": "SystemServices",
     "X-Plasma-Provides": [
-        "org.kde.plasma.trash.noSymbolic"
+        "org.kde.plasma.trash"
     ]
 }
