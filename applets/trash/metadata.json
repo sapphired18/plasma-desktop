@@ -200,6 +200,6 @@
     "X-Plasma-NotificationArea": "true",
     "X-Plasma-NotificationAreaCategory": "SystemServices",
     "X-Plasma-Provides": [
-        "org.kde.plasma.trash"
+        "org.kde.plasma.trash.noSymbolic"
     ]
 }
