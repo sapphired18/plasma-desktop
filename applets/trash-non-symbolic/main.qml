@@ -12,7 +12,7 @@ import org.kde.plasma.plasmoid 2.0
 import org.kde.plasma.core as PlasmaCore
 import org.kde.plasma.extras as PlasmaExtras
 import org.kde.draganddrop 2.0 as DragDrop
-import plasma.applet.org.kde.plasma.trash as TrashPrivate
+import plasma.applet.org.kde.plasma.trash.nonsymbolic as TrashPrivate
 import org.kde.kirigami 2.20 as Kirigami
 
 import org.kde.kcmutils as KCM
@@ -43,11 +43,6 @@ PlasmoidItem {
     Plasmoid.backgroundHints: PlasmaCore.Types.NoBackground
     Plasmoid.icon: {
         let iconName = (hasContents ? "user-trash-full" : "user-trash");
-
-        if (inPanel) {
-            return iconName += "-symbolic";
-        }
-
         return iconName;
     }
     Plasmoid.status: hasContents ? PlasmaCore.Types.ActiveStatus : PlasmaCore.Types.PassiveStatus

@@ -1,0 +1,27 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "heena393@gmail.com",
+                "Name": "Heena"
+            }
+        ],
+        "BugReportUrl": "https://bugs.kde.org/enter_bug.cgi?product=plasmashell&component=Trash%20widget",
+        "Category": "File System",
+        "Description": "Provides access to the files sent to trash",
+        "EnabledByDefault": false,
+        "Icon": "user-trash",
+        "License": "GPL-2.0+",
+        "Name": "Trashcan - Non-Symbolic",
+        "Website": "https://www.kde.org/plasma-desktop"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0",
+    "X-Plasma-DropUrlPatterns": [
+        "trash:/"
+    ],
+    "X-Plasma-NotificationArea": "true",
+    "X-Plasma-NotificationAreaCategory": "SystemServices",
+    "X-Plasma-Provides": [
+        "org.kde.plasma.trash.nonsymbolic"
+    ]
+}

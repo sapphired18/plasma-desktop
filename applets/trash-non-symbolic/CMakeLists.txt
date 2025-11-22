@@ -1,4 +1,4 @@
-plasma_add_applet(org.kde.plasma.trash
+plasma_add_applet(org.kde.plasma.trash.nonsymbolic
     QML_SOURCES
         main.qml
     CPP_SOURCES
@@ -9,7 +9,7 @@ plasma_add_applet(org.kde.plasma.trash
     GENERATE_APPLET_CLASS
 )
 
-target_link_libraries(org.kde.plasma.trash PRIVATE
+target_link_libraries(org.kde.plasma.trash.nonsymbolic PRIVATE
         Qt::Core
         Qt::Qml
         KF6::KIOCore
