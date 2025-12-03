@@ -55,10 +55,8 @@ PlasmaComponents3.ScrollView {
     }
 
     function focusRootList(focusTopElement = true) : void {
-        rootList.showChildDialogs = false;
         rootList.currentIndex = focusTopElement ? 0 : (rootList.model.count - 1)
         rootList.forceActiveFocus(Qt.TabFocusReason)
-        rootList.showChildDialogs = true;
     }
 
     function focusSideBar() : void {
@@ -98,7 +96,7 @@ PlasmaComponents3.ScrollView {
 
             width: (globalFavorites && systemFavorites
                 && (globalFavorites.count + systemFavorites.count)
-                ? Kirigami.Units.iconSizes.medium + margins.left + margins.right : 0)
+                ? Math.max(favoriteApps.implicitWidth, favoriteSystemActions.implicitWidth) + margins.left + margins.right : 0)
             height: parent.height
 
             imagePath: "widgets/frame"
@@ -140,6 +138,7 @@ PlasmaComponents3.ScrollView {
 
                 LayoutItemProxy {
                     target: sideBar.onTopPanel ? favoriteSystemActions : favoriteApps
+                    Layout.topMargin: sideBar.margins.top
                 }
                 KSvg.SvgItem {
                     id: sidebarSeparator
@@ -157,6 +156,7 @@ PlasmaComponents3.ScrollView {
                 }
                 LayoutItemProxy {
                     target: sideBar.onTopPanel ? favoriteApps : favoriteSystemActions
+                    Layout.topMargin: sideBar.margins.bottom
                 }
 
                 SideBarSection {
@@ -306,9 +306,10 @@ PlasmaComponents3.ScrollView {
                 id: noMatchesPlaceholder
 
                 property bool searchRunning: false
+                property string lastQuery: "" // copy to avoid timing conflicts with visible binding
 
                 anchors.centerIn: parent
-                visible: searchField.text !== "" && runnerColumns.width < 1 && (!searchRunning || visible)
+                visible: lastQuery !== "" && runnerColumns.width < 1 && (!searchRunning || visible)
 
                 iconName: "edit-none"
                 text: i18nc("@info:status", "No matches")
@@ -326,6 +327,7 @@ PlasmaComponents3.ScrollView {
 
                     function onTextChanged() {
                         noMatchesPlaceholder.searchRunning = searchField.text !== ""
+                        noMatchesPlaceholder.lastQuery = searchField.text
                     }
                 }
             }
@@ -367,24 +369,6 @@ PlasmaComponents3.ScrollView {
         }
 
         states: [
-            State {
-                name: "top"
-                when: Plasmoid.location === PlasmaCore.Types.TopEdge
-
-                AnchorChanges {
-                    target: searchField
-                    anchors.top: undefined
-                    anchors.bottom: mainRow.bottom
-                    anchors.left: parent.left
-                    anchors.right: undefined
-                }
-
-                PropertyChanges {
-                    target: searchField
-                    anchors.leftMargin: sideBar.width + spacing
-                    anchors.rightMargin: undefined
-                }
-            },
             State {
                 name: "right"
                 when: (Plasmoid.location === PlasmaCore.Types.RightEdge && Qt.application.layoutDirection === Qt.LeftToRight)

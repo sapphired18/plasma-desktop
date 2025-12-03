@@ -6,36 +6,91 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-desktop\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:53+0000\n"
-"PO-Revision-Date: 2025-03-09 12:57+0530\n"
+"POT-Creation-Date: 2025-11-26 00:45+0000\n"
+"PO-Revision-Date: 2025-11-29 22:06+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
-"Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
+"Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #: config.qml:13
 #, kde-format
 msgid "General"
 msgstr "பொதுவானவை"
 
-#: ConfigGeneral.qml:30
+#: ConfigGeneral.qml:31
 #, kde-format
-msgid "Show active application's name on Panel button"
-msgstr "பலகைப் பட்டனில் செயலிலுள்ள செயலியின் பெயரைக் காட்டு"
+msgctxt "@label:listbox"
+msgid "For active application, show:"
+msgstr "செயலிலுள்ள செயலிக்கு காட்ட வேண்டியது:"
 
-#: ConfigGeneral.qml:50
+#: ConfigGeneral.qml:36
+#, kde-format
+msgctxt ""
+"@item:inlistbox what to show for active application in horizontal panel"
+msgid "Icon and name"
+msgstr "சின்னமும் பெயரும்"
+
+#: ConfigGeneral.qml:37
+#, kde-format
+msgctxt ""
+"@item:inlistbox what to show for active application in horizontal panel"
+msgid "Icon"
+msgstr "சின்னம்"
+
+#: ConfigGeneral.qml:38
+#, kde-format
+msgctxt ""
+"@item:inlistbox what to show for active application in horizontal panel"
+msgid "Name"
+msgstr "பெயர்"
+
+#: ConfigGeneral.qml:85
 #, kde-format
 msgid "Only icons can be shown when the Panel is vertical."
 msgstr "பலகை செங்குத்தாக இருக்கும்போது சின்னங்களை மட்டும்தான் காட்ட முடியும்."
 
-#: ConfigGeneral.qml:52
+#: ConfigGeneral.qml:87
 #, kde-format
 msgid "Not applicable when the widget is on the Desktop."
 msgstr "பிளாஸ்மாய்டு பணிமேடையில் இருக்கும்போது பொருந்தாது."
+
+#: ConfigGeneral.qml:100
+#, kde-format
+msgctxt "@label:checkbox"
+msgid "Open on hover:"
+msgstr "சுட்டியை மேல்வைக்கும்போது திறப்பதை:"
+
+#: ConfigGeneral.qml:105
+#, kde-format
+msgctxt "@option:check open-on-hover is enabled, with the following delay:"
+msgid "Enabled, with delay:"
+msgstr "இந்த தாமதத்துடன் இயக்கு:"
+
+#: ConfigGeneral.qml:125
+#, kde-format
+msgid "%1 ms"
+msgid_plural "%1 ms"
+msgstr[0] "%1 மி.நொ."
+msgstr[1] "%1 மி.நொ."
+
+#: ConfigGeneral.qml:134
+#, kde-format
+msgctxt "short for millisecond(s)"
+msgid "ms"
+msgid_plural "ms"
+msgstr[0] "மி.நொ."
+msgstr[1] "மி.நொ."
+
+#: ConfigGeneral.qml:137
+#, kde-format
+msgctxt "@label:spinbox accessible"
+msgid "Hover open delay %1"
+msgstr "மேல்வைக்கும்போது திறப்பதற்கான தாமதம் %1"
 
 #: main.qml:92
 #, kde-format
@@ -47,6 +102,9 @@ msgstr "திறந்துள்ள சாளரங்கள் இல்ல�
 #, kde-format
 msgid "Plasma Desktop"
 msgstr "பிளாஸ்மா பணிமேடை"
+
+#~ msgid "Show active application's name on Panel button"
+#~ msgstr "பலகைப் பட்டனில் செயலிலுள்ள செயலியின் பெயரைக் காட்டு"
 
 #~ msgid "On all desktops"
 #~ msgstr "எல்லா பணிமேடைகளிலும்"

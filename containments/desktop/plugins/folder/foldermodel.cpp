@@ -172,7 +172,6 @@ FolderModel::FolderModel(QObject *parent)
     , m_screenUsed(false)
     , m_screenMapper(ScreenMapper::instance())
     , m_complete(false)
-    , watcher(nullptr)
     , m_currentActivity(KActivities::Consumer().currentActivity())
     , m_showHiddenFiles(false)
 {
@@ -368,6 +367,17 @@ void FolderModel::newFileMenuItemRejected(const QUrl &url)
     setCreatingNewItems(false);
 }
 
+void FolderModel::setUnsortedModeOnDrop()
+{
+    // The positioner will override old icon layout by
+    // sorted icon layout after drag and drop operation.
+    if (m_sortMode != -1) {
+        m_unsortedModeOnDrop = true;
+        setSortMode(-1);
+        m_unsortedModeOnDrop = false;
+    }
+}
+
 QString FolderModel::url() const
 {
     return m_url;
@@ -407,15 +417,8 @@ void FolderModel::setUrl(const QString &url)
         m_dirWatch = new KDirWatch(this);
         connect(m_dirWatch, &KDirWatch::created, this, &FolderModel::iconNameChanged);
         connect(m_dirWatch, &KDirWatch::dirty, this, &FolderModel::iconNameChanged);
-        m_dirWatch->addFile(resolvedNewUrl.toLocalFile() + QStringLiteral("/.directory"));
+        m_dirWatch->addFile(DesktopSchemeHelper::getFileUrl(resolvedNewUrl.toString()).remove(QStringLiteral("file://")) + QStringLiteral("/.directory"));
     }
-
-    if (watcher) {
-        watcher->deleteLater();
-    }
-    watcher = new QFileSystemWatcher(this);
-    addDirectoriesRecursively(resolvedNewUrl.toString(), watcher);
-    connect(watcher, &QFileSystemWatcher::directoryChanged, this, &FolderModel::refresh);
 
     if (dragging()) {
         m_urlChangedWhileDragging = true;
@@ -426,36 +429,6 @@ void FolderModel::setUrl(const QString &url)
     if (m_usedByContainment && !m_screenMapper->sharedDesktops()) {
         m_screenMapper->removeScreen(m_screen, m_currentActivity, oldUrl);
         m_screenMapper->addScreen(m_screen, m_currentActivity, resolvedUrl());
-    }
-}
-
-void FolderModel::addDirectoriesRecursively(const QString &resolvedNewUrl, QFileSystemWatcher *watcher)
-{
-    QStack<QString> directoryStack;
-    directoryStack.push(resolvedNewUrl);
-
-    while (!directoryStack.isEmpty()) {
-        QString currentDir = directoryStack.pop();
-
-        // Add current directory to watcher
-        watcher->addPath(DesktopSchemeHelper::getFileUrl(currentDir));
-
-        QDir dir(currentDir);
-        dir.setFilter(QDir::Dirs | QDir::NoDotAndDotDot);
-        QList<QFileInfo> subdirInfoList = dir.entryInfoList();
-
-        // Extract file paths and add them to subdirs list
-        QStringList subdirs;
-        for (const QFileInfo &subdirInfo : subdirInfoList) {
-            if (subdirInfo.isDir()) {
-                subdirs.append(subdirInfo.filePath());
-            }
-        }
-
-        // Push subdirectories onto the stack for further processing
-        for (const QString &subdir : subdirs) {
-            directoryStack.push(subdir);
-        }
     }
 }
 
@@ -762,14 +735,18 @@ void FolderModel::setFilterMimeTypes(const QStringList &mimeList)
     }
 }
 
-void FolderModel::setScreen(int screen)
+void FolderModel::setScreen(int screen, SetScreenActions screenActions)
 {
     bool screenUsed = (screen != -1);
 
     if (screenUsed && m_screen != screen) {
+        const int prevScreen = m_screen;
         m_screen = screen;
         if (m_usedByContainment && !m_screenMapper->sharedDesktops()) {
             m_screenMapper->addScreen(screen, m_currentActivity, resolvedUrl());
+            if (screenActions == SetScreenActions::MoveIcons && prevScreen > -1 && screen > -1) {
+                m_screenMapper->addScreenTransition(prevScreen, screen, m_currentActivity);
+            }
         }
     }
     m_screenUsed = screenUsed;
@@ -1286,7 +1263,7 @@ void FolderModel::drop(QQuickItem *target, QObject *dropEvent, int row, bool sho
             return;
         }
 
-        setSortMode(-1);
+        setUnsortedModeOnDrop();
 
         for (const auto &url : mimeData->urls()) {
             m_dropTargetPositions.insert(url.fileName(), dropPos);
@@ -1310,7 +1287,7 @@ void FolderModel::drop(QQuickItem *target, QObject *dropEvent, int row, bool sho
 
     if (m_usedByContainment && !m_screenMapper->sharedDesktops()) {
         if (isDropBetweenSharedViews(mimeData->urls(), dropTargetFolderUrl)) {
-            setSortMode(-1);
+            setUnsortedModeOnDrop();
             const QList<QUrl> urls = mimeData->urls();
             for (const auto &url : urls) {
                 m_dropTargetPositions.insert(url.fileName(), dropPos);
@@ -1722,6 +1699,7 @@ bool FolderModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParen
             // time we see it or the folderview was previously used as a regular applet.
             // Associated with this folderview if the view is on the first available screen
             if (m_screen == m_screenMapper->firstAvailableScreen(resolvedUrl(), m_currentActivity)) {
+                m_screenMapper->maybeMoveToDisabledScreens(url, m_currentActivity);
                 m_screenMapper->addMapping(url, m_screen, m_currentActivity, ScreenMapper::DelayedSignal);
             } else {
                 return false;
@@ -2229,7 +2207,9 @@ void FolderModel::setApplet(Plasma::Applet *applet)
                     m_screenMapper->setCorona(corona);
                 }
                 setScreen(containment->screen());
-                connect(containment, &Plasma::Containment::screenChanged, this, &FolderModel::setScreen);
+                connect(containment, &Plasma::Containment::screenChanged, this, [this](int newScreen) {
+                    setScreen(newScreen, SetScreenActions::MoveIcons);
+                });
             }
         }
 
@@ -2258,6 +2238,11 @@ QRectF FolderModel::screenGeometry()
         }
     }
     return QRectF();
+}
+
+bool FolderModel::unsortedModeOnDrop()
+{
+    return m_unsortedModeOnDrop;
 }
 
 bool FolderModel::creatingNewItems() const

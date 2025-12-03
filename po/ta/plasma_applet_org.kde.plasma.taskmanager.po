@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_tasks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-18 00:45+0000\n"
-"PO-Revision-Date: 2025-11-02 13:31+0530\n"
+"POT-Creation-Date: 2025-12-02 00:43+0000\n"
+"PO-Revision-Date: 2025-11-29 21:56+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #: backend.cpp:284
 #, kde-format
@@ -129,12 +129,10 @@ msgid "Hide other windows when hovering over previews"
 msgstr "முன்னோட்டங்களின் மீது சுட்டியை வைக்கும்போது மற்ற சாளரங்களை மறை"
 
 #: package/contents/ui/ConfigAppearance.qml:54
-#, fuzzy, kde-format
-#| msgctxt "@option:check section General"
-#| msgid "Hide other windows when hovering over previews"
+#, kde-format
 msgctxt "@option:check section General"
 msgid "Hide other windows when hovering over tooltips"
-msgstr "முன்னோட்டங்களின் மீது சுட்டியை வைக்கும்போது மற்ற சாளரங்களை மறை"
+msgstr "கருவித்துப்புகளின் மீது சுட்டியை வைக்கும்போது மற்ற சாளரங்களை மறை"
 
 #: package/contents/ui/ConfigAppearance.qml:59
 #, kde-format
@@ -773,18 +771,24 @@ msgctxt "@action:inmenu"
 msgid "&No Titlebar and Frame"
 msgstr "&விளிம்பும் தலைப்புப்பட்டையும் வேண்டாம்"
 
-#: package/contents/ui/ContextMenu.qml:730
+#: package/contents/ui/ContextMenu.qml:727
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "&Hide from Screencast"
+msgstr ""
+
+#: package/contents/ui/ContextMenu.qml:743
 #, kde-format
 msgid "Allow this program to be grouped"
 msgstr "இச்செயலியை பணி மேலாளரில் தொகுக்க விடு"
 
-#: package/contents/ui/ContextMenu.qml:776
+#: package/contents/ui/ContextMenu.qml:789
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "&Close All"
 msgstr "&அனைத்தையும் மூடு"
 
-#: package/contents/ui/ContextMenu.qml:776
+#: package/contents/ui/ContextMenu.qml:789
 #, kde-format
 msgid "&Close"
 msgstr "&மூடு"

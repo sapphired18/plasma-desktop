@@ -109,6 +109,9 @@ EmptyPage {
                 Keys.onBacktabPressed: event => {
                     kickoff.lastHeaderItem.forceActiveFocus(Qt.BacktabFocusReason);
                 }
+                Keys.onUpPressed: event => {
+                    kickoff.searchField.forceActiveFocus(Qt.BacktabFocusReason)
+                }
                 T.StackView.onActivated: {
                     kickoff.sideBar = null
                     kickoff.contentArea = searchView
@@ -127,7 +130,7 @@ EmptyPage {
 
                         iconName: "edit-none"
                         opacity: 0
-                        text: i18nc("@info:status", "No matches")
+                        text: i18nc("@info:status", "No matches") // qmllint disable unqualified
 
                         Connections {
                             target: kickoff.runnerModel
@@ -191,11 +194,12 @@ EmptyPage {
         Connections {
             target: root.header
             function onSearchTextChanged() {
-                if (root.header.searchText.length === 0 && contentItemStackView.currentItem.objectName !== "normalPage") {
+                if ((root.header as Header).searchText.length === 0 &&
+                    contentItemStackView.currentItem.objectName !== "normalPage") {
                     root.blockingHoverFocus = true
                     contentItemStackView.reverseTransitions = true
                     contentItemStackView.replace(normalPage)
-                } else if (root.header.searchText.length > 0) {
+                } else if ((root.header as Header).searchText.length > 0) {
                     if (contentItemStackView.currentItem.objectName !== "searchView") {
                         contentItemStackView.reverseTransitions = false
                         contentItemStackView.replace(searchViewComponent)

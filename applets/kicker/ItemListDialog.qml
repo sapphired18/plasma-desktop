@@ -17,6 +17,7 @@ Kicker.SubMenu {
     property alias focusParent: itemListView.focusParent
     property alias model: funnelModel.sourceModel
 
+    property int index: -1
     property bool aboutToBeDestroyed: false
 
     property alias mainSearchField: itemListView.mainSearchField
@@ -25,6 +26,7 @@ Kicker.SubMenu {
     hideOnWindowDeactivate: kicker.hideOnWindowDeactivate
     location: PlasmaCore.Types.Floating
     offset: Kirigami.Units.smallSpacing
+    LayoutMirroring.enabled: dialogMirrored
 
     onWindowDeactivated: {
         if (!aboutToBeDestroyed) {

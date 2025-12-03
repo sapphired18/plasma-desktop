@@ -5,14 +5,14 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-import QtQuick 2.15
-import QtQuick.Layouts 1.15
-import QtQml 2.15
+import QtQuick
+import QtQuick.Layouts
+import QtQml
 
-import org.kde.plasma.plasmoid 2.0
-import org.kde.kirigami 2.20 as Kirigami
-import org.kde.plasma.components 3.0 as PlasmaComponents
-import org.kde.kquickcontrolsaddons 2.0
+import org.kde.plasma.plasmoid
+import org.kde.kirigami as Kirigami
+import org.kde.plasma.components as PlasmaComponents
+import org.kde.kquickcontrolsaddons
 
 import org.kde.private.desktopcontainment.folder as Folder
 import "code/FolderTools.js" as FolderTools
@@ -456,12 +456,16 @@ FocusScope {
                 )
 
                 // Single-click mode and single-clicked on the item or
-                // double-click mode and double-clicked on the item: open it
+                // double-click mode and double-clicked on the item: activate it
                 if (Qt.styleHints.singleClickActivation || doubleClickInProgress || mouse.source === Qt.MouseEventSynthesizedByQt) {
                     doubleClickInProgress = false
-                    let func = root.useListViewMode && mouse.button === Qt.LeftButton && hoveredItem.isDir ? main.doCd : dir.run;
-
-                    func(positioner.map(gridView.currentIndex));
+                    if (mouse.modifiers & Qt.AltModifier) {
+                        dir.openPropertiesDialog();
+                    } else if (root.useListViewMode && mouse.button === Qt.LeftButton && hoveredItem.isDir) {
+                        main.doCd(positioner.map(gridView.currentIndex));
+                    } else {
+                        dir.run(positioner.map(gridView.currentIndex));
+                    }
                     main.previouslySelectedItemIndex = gridView.currentIndex;
                     hoveredItem = null;
                 } else {
@@ -558,12 +562,20 @@ FocusScope {
         Component {
             id: rubberBandObject
 
-            Folder.RubberBand {
+            Rectangle {
                 id: rubberBand
 
                 width: 0
                 height: 0
                 z: 99999
+
+                radius: Kirigami.Units.cornerRadius
+                border.color: Kirigami.Theme.highlightColor
+                color: Qt.alpha(border.color, 0.3)
+
+                function intersects(rect) {
+                    return x + width >= rect.x && y + height >= rect.y && rect.x + rect.width >= x && rect.y + rect.height >= y;
+                }
 
                 function close() {
                     opacityAnimation.restart();

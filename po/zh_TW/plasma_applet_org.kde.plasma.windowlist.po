@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_windowlist\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:53+0000\n"
-"PO-Revision-Date: 2025-03-05 19:49+0900\n"
+"POT-Creation-Date: 2025-11-26 00:45+0000\n"
+"PO-Revision-Date: 2025-11-29 17:59+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "dot tw>\n"
-"X-Generator: Lokalize 25.03.70\n"
+"X-Generator: Lokalize 25.08.3\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: config.qml:13
@@ -24,20 +24,73 @@ msgstr ""
 msgid "General"
 msgstr "一般"
 
-#: ConfigGeneral.qml:30
+#: ConfigGeneral.qml:31
 #, kde-format
-msgid "Show active application's name on Panel button"
-msgstr "在面板按鈕上顯示作用中應用程式的名稱"
+msgctxt "@label:listbox"
+msgid "For active application, show:"
+msgstr "對於作用中應用程式，顯示："
 
-#: ConfigGeneral.qml:50
+#: ConfigGeneral.qml:36
+#, kde-format
+msgctxt ""
+"@item:inlistbox what to show for active application in horizontal panel"
+msgid "Icon and name"
+msgstr "圖示與名稱"
+
+#: ConfigGeneral.qml:37
+#, kde-format
+msgctxt ""
+"@item:inlistbox what to show for active application in horizontal panel"
+msgid "Icon"
+msgstr "圖示"
+
+#: ConfigGeneral.qml:38
+#, kde-format
+msgctxt ""
+"@item:inlistbox what to show for active application in horizontal panel"
+msgid "Name"
+msgstr "名稱"
+
+#: ConfigGeneral.qml:85
 #, kde-format
 msgid "Only icons can be shown when the Panel is vertical."
 msgstr "面板垂直時只能顯示圖示。"
 
-#: ConfigGeneral.qml:52
+#: ConfigGeneral.qml:87
 #, kde-format
 msgid "Not applicable when the widget is on the Desktop."
 msgstr "元件在桌面上時不適用。"
+
+#: ConfigGeneral.qml:100
+#, kde-format
+msgctxt "@label:checkbox"
+msgid "Open on hover:"
+msgstr "滑鼠懸停時開啟："
+
+#: ConfigGeneral.qml:105
+#, kde-format
+msgctxt "@option:check open-on-hover is enabled, with the following delay:"
+msgid "Enabled, with delay:"
+msgstr "啟用，在延遲一段時間後開啟："
+
+#: ConfigGeneral.qml:125
+#, kde-format
+msgid "%1 ms"
+msgid_plural "%1 ms"
+msgstr[0] "%1 毫秒"
+
+#: ConfigGeneral.qml:134
+#, kde-format
+msgctxt "short for millisecond(s)"
+msgid "ms"
+msgid_plural "ms"
+msgstr[0] "毫秒"
+
+#: ConfigGeneral.qml:137
+#, kde-format
+msgctxt "@label:spinbox accessible"
+msgid "Hover open delay %1"
+msgstr "游標停駐開啟延遲 %1"
 
 #: main.qml:92
 #, kde-format
@@ -49,6 +102,9 @@ msgstr "無已開啟視窗"
 #, kde-format
 msgid "Plasma Desktop"
 msgstr "Plasma 桌面"
+
+#~ msgid "Show active application's name on Panel button"
+#~ msgstr "在面板按鈕上顯示作用中應用程式的名稱"
 
 #~ msgid "On all desktops"
 #~ msgstr "在所有桌面"

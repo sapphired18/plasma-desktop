@@ -9,7 +9,6 @@
 #pragma once
 
 #include <QAction>
-#include <QFileSystemWatcher>
 #include <QImage>
 #include <QItemSelection>
 #include <QMimeData>
@@ -123,6 +122,11 @@ public:
         Canceled,
     };
     Q_ENUM(Status)
+
+    enum class SetScreenActions {
+        None,
+        MoveIcons
+    };
 
     explicit FolderModel(QObject *parent = nullptr);
     ~FolderModel() override;
@@ -252,12 +256,14 @@ public:
 
     bool screenUsed();
 
-    void setScreen(int screen);
+    void setScreen(int screen, SetScreenActions screenActions = SetScreenActions::None);
 
 #ifdef BUILD_TESTING
     void setScreenResolution(const QSizeF &size);
 #endif
     QRectF screenGeometry();
+
+    bool unsortedModeOnDrop();
 
 Q_SIGNALS:
     void urlChanged() const;
@@ -314,6 +320,9 @@ private Q_SLOTS:
     void newFileMenuItemCreationStarted(const QUrl &url);
     void newFileMenuItemCreated(const QUrl &url);
     void newFileMenuItemRejected(const QUrl &url);
+
+private:
+    void setUnsortedModeOnDrop();
 
 private:
     struct DragImage {
@@ -377,9 +386,8 @@ private:
     Plasma::Applet *m_applet = nullptr;
     bool m_complete;
     QPoint m_menuPosition;
-    QFileSystemWatcher *watcher;
-    void addDirectoriesRecursively(const QString &resolvedNewUrl, QFileSystemWatcher *watcher);
     bool m_creatingNewItems = false;
+    bool m_unsortedModeOnDrop = false;
 
     /**
      * This property is used to save the current activity when FolderModel is initialized.

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_windowlist\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:53+0000\n"
-"PO-Revision-Date: 2025-02-25 21:23+0100\n"
+"POT-Creation-Date: 2025-11-26 00:45+0000\n"
+"PO-Revision-Date: 2025-11-28 00:54+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -16,27 +16,82 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.03.70\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: config.qml:13
 #, kde-format
 msgid "General"
 msgstr "Generale"
 
-#: ConfigGeneral.qml:30
+#: ConfigGeneral.qml:31
 #, kde-format
-msgid "Show active application's name on Panel button"
-msgstr "Mostra il nome dell'applicazione sul pulsante del pannello"
+msgctxt "@label:listbox"
+msgid "For active application, show:"
+msgstr "Per applicazioni attive, mostra:"
 
-#: ConfigGeneral.qml:50
+#: ConfigGeneral.qml:36
+#, kde-format
+msgctxt ""
+"@item:inlistbox what to show for active application in horizontal panel"
+msgid "Icon and name"
+msgstr "Icona e nome"
+
+#: ConfigGeneral.qml:37
+#, kde-format
+msgctxt ""
+"@item:inlistbox what to show for active application in horizontal panel"
+msgid "Icon"
+msgstr "Icona"
+
+#: ConfigGeneral.qml:38
+#, kde-format
+msgctxt ""
+"@item:inlistbox what to show for active application in horizontal panel"
+msgid "Name"
+msgstr "Nome"
+
+#: ConfigGeneral.qml:85
 #, kde-format
 msgid "Only icons can be shown when the Panel is vertical."
 msgstr "Solo le icone possono essere mostrate quando il pannello è verticale."
 
-#: ConfigGeneral.qml:52
+#: ConfigGeneral.qml:87
 #, kde-format
 msgid "Not applicable when the widget is on the Desktop."
 msgstr "Non valido se l'oggetto è sul desktop."
+
+#: ConfigGeneral.qml:100
+#, kde-format
+msgctxt "@label:checkbox"
+msgid "Open on hover:"
+msgstr "Apri al passaggio del mouse:"
+
+#: ConfigGeneral.qml:105
+#, kde-format
+msgctxt "@option:check open-on-hover is enabled, with the following delay:"
+msgid "Enabled, with delay:"
+msgstr "Abilitato, con ritardo:"
+
+#: ConfigGeneral.qml:125
+#, kde-format
+msgid "%1 ms"
+msgid_plural "%1 ms"
+msgstr[0] "%1 ms"
+msgstr[1] "%1 ms"
+
+#: ConfigGeneral.qml:134
+#, kde-format
+msgctxt "short for millisecond(s)"
+msgid "ms"
+msgid_plural "ms"
+msgstr[0] "ms"
+msgstr[1] "ms"
+
+#: ConfigGeneral.qml:137
+#, kde-format
+msgctxt "@label:spinbox accessible"
+msgid "Hover open delay %1"
+msgstr "Ritardo apertura al passaggio del mouse %1"
 
 #: main.qml:92
 #, kde-format
@@ -48,6 +103,9 @@ msgstr "Nessuna finestra aperta"
 #, kde-format
 msgid "Plasma Desktop"
 msgstr "Desktop Plasma"
+
+#~ msgid "Show active application's name on Panel button"
+#~ msgstr "Mostra il nome dell'applicazione sul pulsante del pannello"
 
 #~ msgid "Show list of opened windows"
 #~ msgstr "Mostra elenco di finestre aperte"

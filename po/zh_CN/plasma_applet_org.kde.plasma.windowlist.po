@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:53+0000\n"
+"POT-Creation-Date: 2025-11-26 00:45+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -23,20 +23,73 @@ msgstr ""
 msgid "General"
 msgstr "常规"
 
-#: ConfigGeneral.qml:30
+#: ConfigGeneral.qml:31
 #, kde-format
-msgid "Show active application's name on Panel button"
-msgstr "面板按钮显示活动应用程序名称"
+msgctxt "@label:listbox"
+msgid "For active application, show:"
+msgstr "对于活动应用程序，显示："
 
-#: ConfigGeneral.qml:50
+#: ConfigGeneral.qml:36
+#, kde-format
+msgctxt ""
+"@item:inlistbox what to show for active application in horizontal panel"
+msgid "Icon and name"
+msgstr "图标和名称"
+
+#: ConfigGeneral.qml:37
+#, kde-format
+msgctxt ""
+"@item:inlistbox what to show for active application in horizontal panel"
+msgid "Icon"
+msgstr "图标"
+
+#: ConfigGeneral.qml:38
+#, kde-format
+msgctxt ""
+"@item:inlistbox what to show for active application in horizontal panel"
+msgid "Name"
+msgstr "名称"
+
+#: ConfigGeneral.qml:85
 #, kde-format
 msgid "Only icons can be shown when the Panel is vertical."
 msgstr "面板垂直时，只显示图标。"
 
-#: ConfigGeneral.qml:52
+#: ConfigGeneral.qml:87
 #, kde-format
 msgid "Not applicable when the widget is on the Desktop."
-msgstr "挂件位于桌面时不适用。"
+msgstr "小部件位于桌面时不适用。"
+
+#: ConfigGeneral.qml:100
+#, kde-format
+msgctxt "@label:checkbox"
+msgid "Open on hover:"
+msgstr "悬停时打开："
+
+#: ConfigGeneral.qml:105
+#, kde-format
+msgctxt "@option:check open-on-hover is enabled, with the following delay:"
+msgid "Enabled, with delay:"
+msgstr "启用，带有延迟："
+
+#: ConfigGeneral.qml:125
+#, kde-format
+msgid "%1 ms"
+msgid_plural "%1 ms"
+msgstr[0] "%1 毫秒"
+
+#: ConfigGeneral.qml:134
+#, kde-format
+msgctxt "short for millisecond(s)"
+msgid "ms"
+msgid_plural "ms"
+msgstr[0] "毫秒"
+
+#: ConfigGeneral.qml:137
+#, kde-format
+msgctxt "@label:spinbox accessible"
+msgid "Hover open delay %1"
+msgstr "悬停打开延迟 %1"
 
 #: main.qml:92
 #, kde-format

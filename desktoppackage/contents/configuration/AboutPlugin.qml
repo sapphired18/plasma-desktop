@@ -6,11 +6,11 @@
 */
 
 import QtQuick
-import QtQuick.Controls 2.4 as QQC2
-import QtQuick.Layouts 1.3
+import QtQuick.Controls as QQC2
+import QtQuick.Layouts
 
-import org.kde.plasma.plasmoid 2.0
-import org.kde.kirigami 2.20 as Kirigami
+import org.kde.plasma.plasmoid
+import org.kde.kirigami as Kirigami
 import org.kde.kcmutils as KCM
 
 /**
@@ -129,7 +129,8 @@ KCM.SimpleKCM {
                     Layout.fillWidth: true
                     Layout.alignment: Qt.AlignTop
                     Layout.maximumWidth: Kirigami.Units.gridUnit * 15
-                    level: 2
+                    level: 3
+                    type: Kirigami.Heading.Type.Secondary
                     wrapMode: Text.WordWrap
                     text: page.metaData.description
                     textFormat: Text.PlainText

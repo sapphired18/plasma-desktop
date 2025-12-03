@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:53+0000\n"
-"PO-Revision-Date: 2025-02-24 22:24+0100\n"
+"POT-Creation-Date: 2025-11-26 00:45+0000\n"
+"PO-Revision-Date: 2025-11-26 09:55+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -17,27 +17,86 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.8\n"
 
 #: config.qml:13
 #, kde-format
 msgid "General"
 msgstr "Splošno"
 
-#: ConfigGeneral.qml:30
+#: ConfigGeneral.qml:31
 #, kde-format
-msgid "Show active application's name on Panel button"
-msgstr "Prikaži ime dejavne aplikacije na gumbu plošče"
+msgctxt "@label:listbox"
+msgid "For active application, show:"
+msgstr "Za dejavno aplikacijo pokaži:"
 
-#: ConfigGeneral.qml:50
+#: ConfigGeneral.qml:36
+#, kde-format
+msgctxt ""
+"@item:inlistbox what to show for active application in horizontal panel"
+msgid "Icon and name"
+msgstr "Ikono in ime"
+
+#: ConfigGeneral.qml:37
+#, kde-format
+msgctxt ""
+"@item:inlistbox what to show for active application in horizontal panel"
+msgid "Icon"
+msgstr "Ikono"
+
+#: ConfigGeneral.qml:38
+#, kde-format
+msgctxt ""
+"@item:inlistbox what to show for active application in horizontal panel"
+msgid "Name"
+msgstr "Ime"
+
+#: ConfigGeneral.qml:85
 #, kde-format
 msgid "Only icons can be shown when the Panel is vertical."
 msgstr "Prikaži samo ikone, kadar je plošča navpična."
 
-#: ConfigGeneral.qml:52
+#: ConfigGeneral.qml:87
 #, kde-format
 msgid "Not applicable when the widget is on the Desktop."
 msgstr "Ni smiselno, kadar je gradnik na namizju."
+
+#: ConfigGeneral.qml:100
+#, kde-format
+msgctxt "@label:checkbox"
+msgid "Open on hover:"
+msgstr "Odpri ob lebdenju miške:"
+
+#: ConfigGeneral.qml:105
+#, kde-format
+msgctxt "@option:check open-on-hover is enabled, with the following delay:"
+msgid "Enabled, with delay:"
+msgstr "Omogočeno, z zakasnitvijo:"
+
+#: ConfigGeneral.qml:125
+#, kde-format
+msgid "%1 ms"
+msgid_plural "%1 ms"
+msgstr[0] "%1 ms"
+msgstr[1] "%1 ms"
+msgstr[2] "%1 ms"
+msgstr[3] "%1 ms"
+
+#: ConfigGeneral.qml:134
+#, kde-format
+msgctxt "short for millisecond(s)"
+msgid "ms"
+msgid_plural "ms"
+msgstr[0] "ms"
+msgstr[1] "ms"
+msgstr[2] "ms"
+msgstr[3] "ms"
+
+#: ConfigGeneral.qml:137
+#, kde-format
+msgctxt "@label:spinbox accessible"
+msgid "Hover open delay %1"
+msgstr "Zakasnitev odpiranja z lebdenjem %1"
 
 #: main.qml:92
 #, kde-format
@@ -49,6 +108,9 @@ msgstr "Ni odprtih oken"
 #, kde-format
 msgid "Plasma Desktop"
 msgstr "Namizje Plasma"
+
+#~ msgid "Show active application's name on Panel button"
+#~ msgstr "Prikaži ime dejavne aplikacije na gumbu plošče"
 
 #~ msgid "On all desktops"
 #~ msgstr "Na vseh namizjih"
