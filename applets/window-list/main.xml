@@ -51,6 +51,14 @@
       </choices>
       <default code="true">TaskManager::TasksModel::SortVirtualDesktop</default>
     </entry>
+    <entry name="fullRepresentationSizeMode" type="Enum">
+      <label>How to determine the full representation width</label>
+      <choices name="FullRepresentationSize">
+        <choice name="Fixed"/>
+        <choice name="Dynamic"/>
+      </choices>
+      <default>Dynamic</default>
+    </entry>
   </group>
 
 </kcfg>

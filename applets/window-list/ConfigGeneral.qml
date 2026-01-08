@@ -22,6 +22,7 @@ KCM.SimpleKCM {
     property alias cfg_openOnHover: openOnHoverCheckbox.checked
     property alias cfg_hoverOpenDelay: hoverDelaySpinBox.value
     property int cfg_sortingStrategy: Plasmoid.configuration.sortingStrategy
+    property int cfg_fullRepresentationSizeMode: Plasmoid.configuration.fullRepresentationSizeMode
     property alias cfg_showOnlyCurrentScreen: showOnlyCurrentScreen.checked
     property alias cfg_showOnlyCurrentDesktop: showOnlyCurrentDesktop.checked
     property alias cfg_showOnlyCurrentActivity: showOnlyCurrentActivity.checked
@@ -202,6 +203,27 @@ KCM.SimpleKCM {
             onActivated: root.cfg_sortingStrategy = currentValue
             Component.onCompleted: currentIndex = indexOfValue(root.cfg_sortingStrategy)
         }
-    
+        
+        Item {
+            Kirigami.FormData.isSection: true
+        }
+
+        QQC2.ComboBox {
+            id: widthModeComboBox
+            Kirigami.FormData.label: i18nc("@label:listbox", "Full representation width:")
+            Layout.fillWidth: true
+            Layout.minimumWidth: Kirigami.Units.gridUnit * 14
+            enabled: Plasmoid.formFactor === PlasmaCore.Types.Horizontal || Plasmoid.formFactor === PlasmaCore.Types.Vertical
+            textRole: "text"
+            valueRole: "value"
+
+            model: [
+                { "text": i18nc("@item:inlistbox", "Fixed"), "value": Globals.FullRepresentationSize.Fixed },
+                { "text": i18nc("@item:inlistbox", "Dynamic"), "value": Globals.FullRepresentationSize.Dynamic }
+            ]
+
+            onActivated: root.cfg_fullRepresentationSizeMode = currentValue
+            Component.onCompleted: currentIndex = indexOfValue(root.cfg_fullRepresentationSizeMode)
+        }
     }
 }

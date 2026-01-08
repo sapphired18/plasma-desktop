@@ -28,6 +28,16 @@ PlasmoidItem {
     switchWidth: Kirigami.Units.gridUnit * 8
     switchHeight: Kirigami.Units.gridUnit * 6
 
+    readonly property bool inPanel: [
+        PlasmaCore.Types.TopEdge,
+        PlasmaCore.Types.RightEdge,
+        PlasmaCore.Types.BottomEdge,
+        PlasmaCore.Types.LeftEdge,
+    ].includes(Plasmoid.location)
+
+    readonly property bool isInFixedSizeMode: inPanel && Plasmoid.configuration.fullRepresentationSizeMode === Globals.FullRepresentationSize.Fixed
+    readonly property bool isInDynamicSizeMode: inPanel && Plasmoid.configuration.fullRepresentationSizeMode === Globals.FullRepresentationSize.Dynamic
+
     TaskManager.VirtualDesktopInfo {
         id: virtualDesktopInfo
     }
@@ -53,17 +63,126 @@ PlasmoidItem {
         filterNotMinimized: Plasmoid.configuration.showOnlyMinimized
     }
 
+    property string longestWindowCaption: ""
+
+    TextMetrics {
+        id: longestTextMetrics
+        elide: Text.ElideRight
+    }
+
+    property int fullRepresentationDynamicWidth: 0
+
+    function updateLongestWindowTitle() {
+         if (!tasksModel || !tasksModel.count) {
+            longestWindowCaption = "";
+            return;
+        }
+
+        let maxWidth = 0;
+        let longest = "";
+        for (let i = 0; i < tasksModel.count; ++i) {
+            let idx = tasksModel.makeModelIndex(i);
+            longestTextMetrics.text = tasksModel.data(idx, 0) || tasksModel.data(idx, TaskManager.AbstractTasksModel.AppName) || "";
+            
+            if (longestTextMetrics.width > maxWidth) {
+                maxWidth = longestTextMetrics.width;
+                longest = longestTextMetrics.text;
+            }
+        }
+
+        root.longestWindowCaption = longest;
+        fullRepresentationDynamicWidth = Math.ceil(maxWidth) + Kirigami.Units.iconSizes.sizeForLabels * 2 + Kirigami.Units.smallSpacing * 2;
+    }
+
+    Connections {
+        target: tasksModel
+        function onModelReset() { updateLongestWindowTitle(); }
+    }
+
     Component {
         id: windowList
 
-        ListView {
+        ListView {  
             id: windowListView
-
+            property int maxDelegateWidth: 0
+            
             clip: true
-            Layout.preferredWidth: Kirigami.Units.gridUnit * 10
-            Layout.preferredHeight: Kirigami.Units.gridUnit * 12
-            model: tasksModel
 
+
+            // Set preferred size when on desktop containment. 
+            // Size set arbitrarily to fit approximately 12-14 items.
+            Binding {
+                target: windowListView
+                property: "Layout.preferredWidth"
+                when: !inPanel
+                value: Kirigami.Units.gridUnit * 28
+            }
+
+            Binding {
+                target: windowListView
+                property: "Layout.preferredHeight"
+                when: !inPanel
+                value: Kirigami.Units.gridUnit * 24
+            }
+
+
+            // Set fixed size when in panel and fixed size mode is selected.
+            // Size set arbitrarily to fit approximately 12-14 items
+            Binding {
+                target: windowListView
+                property: "Layout.minimumWidth"
+                when: isInFixedSizeMode
+                value: Kirigami.Units.gridUnit * 28
+            }
+            Binding {
+                target: windowListView
+                property: "Layout.maximumWidth"
+                when: isInFixedSizeMode
+                value: Kirigami.Units.gridUnit * 28
+            }
+            Binding {
+                target: windowListView
+                property: "Layout.minimumHeight"
+                when: isInFixedSizeMode
+                value: Kirigami.Units.gridUnit * 24
+            }
+            Binding {
+                target: windowListView
+                property: "Layout.maximumHeight"
+                when: isInFixedSizeMode
+                value: Kirigami.Units.gridUnit * 24
+            }
+         
+            // Set dynamic size when in panel and dynamic size mode is selected.
+            // Size is based on content size maintaining the existing behavior
+            // with old implementation of PlasmaExtras.ModelContextMenu
+            Binding {
+                target: windowListView
+                property: "Layout.maximumHeight"
+                when: isInDynamicSizeMode
+                value: contentHeight
+            }
+            Binding {
+                target: windowListView
+                property: "Layout.minimumHeight"
+                when: isInDynamicSizeMode
+                value: contentHeight
+            }
+            Binding {
+                target: windowListView
+                property: "Layout.maximumWidth"
+                when: isInDynamicSizeMode
+                value: root.fullRepresentationDynamicWidth
+            }
+            Binding {
+                target: windowListView
+                property: "Layout.minimumWidth"
+                when: isInDynamicSizeMode
+                value: root.fullRepresentationDynamicWidth
+            }
+
+            model: tasksModel
+        
             Connections {
                 target: root
                 function onExpandedChanged(expanded) {
@@ -79,6 +198,8 @@ PlasmoidItem {
                             root.lastActiveTaskName = ""
                             root.lastActiveTaskIcon = ""
                         }
+
+                        root.updateLongestWindowTitle();
                     }
                 }
             }
@@ -142,15 +263,24 @@ PlasmoidItem {
                 }
             }
 
+            // Helps with performance otherwise scrolling is very laggy and stuttery
+            // with low fps
+            reuseItems: true
+
             delegate: PlasmaComponents.ItemDelegate {
                 id: delegate
 
                 required property var model
                 required property var decoration
 
-
-                width: ListView.view.width
-
+                width: {
+                    if (isInDynamicSizeMode) {
+                        return root.fullRepresentationDynamicWidth 
+                    } else {
+                        return ListView.view.width;
+                    }
+                }
+                
                 highlighted: ListView.isCurrentItem
 
                 contentItem: RowLayout {
