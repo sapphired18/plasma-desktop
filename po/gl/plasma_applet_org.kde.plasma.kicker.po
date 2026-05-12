@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-13 08:43+0000\n"
+"POT-Creation-Date: 2026-04-05 02:42+0000\n"
 "PO-Revision-Date: 2023-06-18 19:33+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
@@ -234,7 +234,7 @@ msgid ""
 "usually feature a dark background."
 msgstr ""
 
-#: DashboardRepresentation.qml:309
+#: DashboardRepresentation.qml:373
 #, fuzzy, kde-format
 #| msgid "Favorites"
 msgctxt "@title:group for column with app and system action grids"
@@ -260,14 +260,14 @@ msgctxt "@action:inmenu launches kmenuedit"
 msgid "Edit Applications…"
 msgstr "Editar as aplicacións…"
 
-#: MenuRepresentation.qml:170
+#: MenuRepresentation.qml:177
 #, fuzzy, kde-format
 #| msgid "Favorites"
 msgctxt "@title:group accessible name for favorite group in sidebar"
 msgid "Favorites"
 msgstr "Favoritos"
 
-#: MenuRepresentation.qml:348
+#: MenuRepresentation.qml:353
 #, kde-format
 msgctxt "@info:status"
 msgid "No matches"

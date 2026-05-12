@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/plasma-desktop/kcm_workspace.pot\n"
-"X-Crowdin-File-ID: 43537\n"
+"X-Crowdin-File: /kf6-stable/messages/plasma-desktop/kcm_workspace.pot\n"
+"X-Crowdin-File-ID: 52480\n"
 
 #: ui/main.qml:25
 #, kde-format
@@ -96,7 +96,7 @@ msgctxt ""
 "@option:radio part of a complete sentence: 'Clicking in scrollbar track "
 "scrolls to the clicked location'"
 msgid "Scrolls to the clicked location"
-msgstr "直接滚动到点击位置"
+msgstr "滚动到点击位置"
 
 #: ui/main.qml:119
 #, kde-format
@@ -278,7 +278,7 @@ msgstr "启用触摸模式："
 #, kde-format
 msgctxt "@option:radio As in: 'Touch Mode is automatically enabled as needed'"
 msgid "Automatically enable as needed"
-msgstr "按需自动启动"
+msgstr "按需自动启用"
 
 #: ui/main.qml:418
 #, kde-format
@@ -301,13 +301,13 @@ msgstr ""
 #, kde-format
 msgctxt "As in: 'Touch Mode is always enabled'"
 msgid "Always active"
-msgstr "总是启用"
+msgstr "始终启用"
 
 #: ui/main.qml:463
 #, kde-format
 msgctxt "As in: 'Touch Mode is never enabled'"
 msgid "Disabled"
-msgstr "禁用"
+msgstr "已禁用"
 
 #: ui/main.qml:486
 #, kde-format

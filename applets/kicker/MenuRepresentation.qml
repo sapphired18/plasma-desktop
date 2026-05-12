@@ -28,7 +28,7 @@ PlasmaComponents3.ScrollView {
 
     focus: true
 
-    Layout.minimumWidth: Math.min(mainRow.width, mainRow.implicitWidth, Screen.width - Kirigami.Units.largeSpacing * 4)
+    Layout.minimumWidth: Math.min(Math.max(mainRow.Layout.minimumWidth, mainRow.implicitWidth), Screen.width - Kirigami.Units.largeSpacing * 4)
     Layout.maximumWidth: Layout.minimumWidth
 
     contentWidth: mainRow.implicitWidth
@@ -84,8 +84,10 @@ PlasmaComponents3.ScrollView {
 
         anchors.fill: parent
 
-        spacing: Kirigami.Units.smallSpacing
+        spacing: 0
 
+        readonly property int minimumMainWidth: Math.max(searchField.defaultWidth, runnerColumns.searchResultsPresent ? 0 : Math.min(rootList.implicitWidth, rootList.Layout.maximumWidth))
+        Layout.minimumWidth: (sideBar.visible ? sideBar.implicitWidth + sideBar.Layout.rightMargin : 0) + minimumMainWidth
         LayoutMirroring.enabled: ((Plasmoid.location === PlasmaCore.Types.RightEdge)
             || (Application.layoutDirection === Qt.RightToLeft && Plasmoid.location !== PlasmaCore.Types.LeftEdge))
 
@@ -97,6 +99,7 @@ PlasmaComponents3.ScrollView {
             visible: (root.globalFavorites.count + root.systemFavorites.count) > 0
 
             Layout.fillHeight: true
+            Layout.rightMargin: Kirigami.Units.smallSpacing
 
             implicitWidth: Math.max(favoriteApps.implicitWidth, favoriteSystemActions.implicitWidth) + margins.left + margins.right + sideBarScrollView.actualScrollBarWidth
             implicitHeight: sideBarLayout.implicitHeight + margins.top + margins.bottom
@@ -134,16 +137,15 @@ PlasmaComponents3.ScrollView {
             PlasmaComponents3.ScrollView {
                 id: sideBarScrollView
 
-                anchors.top: parent.top
-                anchors.horizontalCenter: parent.horizontalCenter
-                height: parent.height
+                anchors.fill: parent
 
                 PlasmaComponents3.ScrollBar.horizontal.policy: PlasmaComponents3.ScrollBar.AlwaysOff
+                contentWidth: availableWidth
 
                 readonly property int actualScrollBarWidth: scrollBarVisible ? sideBarScrollView.PlasmaComponents3.ScrollBar.vertical.width : 0
                 property bool scrollBarVisible
                 Binding on scrollBarVisible {
-                    value: sideBarScrollView.contentHeight > sideBarScrollView.height
+                    value: Screen.width > 0 && sideBarScrollView.contentHeight > (Screen.width - Kirigami.Units.largeSpacing * 4)
                     delayed: true // this needs to be delayed or it can get stuck in a resize loop
                 }
 
@@ -163,8 +165,13 @@ PlasmaComponents3.ScrollView {
 
                 ColumnLayout {
                     id: sideBarLayout
-                    height: Math.max(implicitHeight, parent.height)
-                    width: parent.width
+                    height: Math.max(implicitHeight, sideBarScrollView.height - anchors.topMargin - anchors.bottomMargin)
+                    anchors.top: parent.top
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.topMargin: sideBar.margins.top
+                    anchors.leftMargin: sideBar.margins.left
+                    anchors.rightMargin: sideBar.margins.right
 
                     Accessible.role: Accessible.List
                     Accessible.name: i18nc("@title:group accessible name for favorite group in sidebar", "Favorites")
@@ -174,7 +181,6 @@ PlasmaComponents3.ScrollView {
 
                     LayoutItemProxy {
                         target: sideBar.onTopPanel ? favoriteSystemActions : favoriteApps
-                        Layout.topMargin: sideBar.margins.top
                     }
                     KSvg.SvgItem {
                         id: sidebarSeparator
@@ -192,7 +198,7 @@ PlasmaComponents3.ScrollView {
                     }
                     LayoutItemProxy {
                         target: sideBar.onTopPanel ? favoriteApps : favoriteSystemActions
-                        Layout.topMargin: sideBar.margins.bottom
+                        Layout.bottomMargin: sideBar.margins.bottom
                     }
 
                     SideBarSection {
@@ -238,7 +244,6 @@ PlasmaComponents3.ScrollView {
             Layout.bottomMargin: searchField.implicitHeight + Kirigami.Units.smallSpacing
             Layout.fillHeight: true
             Layout.fillWidth: true
-            Layout.minimumWidth: searchField.defaultWidth
             Layout.maximumHeight: implicitHeight
 
 
@@ -279,7 +284,6 @@ PlasmaComponents3.ScrollView {
 
             readonly property bool searchResultsPresent: runnerColumns.visibleChildren[0] instanceof RunnerResultsList
 
-            Layout.minimumWidth: searchField.defaultWidth
             Layout.fillHeight: true
 
             visible: searchField.text !== "" && root.runnerModel.count > 0
@@ -334,35 +338,40 @@ PlasmaComponents3.ScrollView {
                 }
             }
 
-            PlasmaExtras.PlaceholderMessage {
-                id: noMatchesPlaceholder
+        }
+        PlasmaExtras.PlaceholderMessage {
+            id: noMatchesPlaceholder
 
-                property bool searchRunning: false
-                property string lastQuery: "" // copy to avoid timing conflicts with visible binding
+            property bool searchRunning: false
+            property string lastQuery: "" // copy to avoid timing conflicts with visible binding
 
-                Layout.minimumWidth: searchField.defaultWidth
-                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+            Layout.minimumWidth: mainRow.minimumMainWidth
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
 
-                visible: lastQuery !== "" && !runnerColumns.searchResultsPresent && (!searchRunning || visible)
-                iconName: "edit-none"
-                text: i18nc("@info:status", "No matches")
+            visible: lastQuery !== "" && !runnerColumns.searchResultsPresent && (!searchRunning || visible)
+            iconName: "edit-none"
+            text: i18nc("@info:status", "No matches")
 
-                Connections {
-                    target: root.runnerModel
+            Connections {
+                target: root.runnerModel
 
-                    function onQueryFinished() {
-                        noMatchesPlaceholder.searchRunning = false
-                    }
+                function onQueryFinished() {
+                    noMatchesPlaceholder.searchRunning = false
                 }
+            }
 
-                Connections {
-                    target: searchField
+            Connections {
+                target: searchField
 
-                    function onTextChanged() {
-                        noMatchesPlaceholder.searchRunning = searchField.text !== ""
-                        noMatchesPlaceholder.lastQuery = searchField.text
-                    }
+                function onTextChanged() {
+                    noMatchesPlaceholder.searchRunning = searchField.text !== ""
+                    noMatchesPlaceholder.lastQuery = searchField.text
                 }
+            }
+
+            Binding {
+                searchField.width: noMatchesPlaceholder.width
+                when: noMatchesPlaceholder.visible
             }
         }
     }
@@ -370,17 +379,17 @@ PlasmaComponents3.ScrollView {
     PlasmaExtras.SearchField {
         id: searchField
 
-        readonly property int spacing: sideBar.width ? mainRow.spacing : 0
+        readonly property int spacing: sideBar.width ? sideBar.Layout.rightMargin : 0
 
         anchors.bottom: mainRow.bottom
         anchors.left: parent.left
-        anchors.leftMargin: sideBar.width + spacing
+        anchors.leftMargin: sideBar.visible ? sideBar.width + spacing : 0
 
         readonly property real defaultWidth: Kirigami.Units.gridUnit * 14
 
-        width: runnerColumns.visible
-            ? (runnerColumns.searchResultsPresent ? runnerColumns.visibleChildren[0].width : runnerColumns.width)
-            : (rootList.visible ? rootList.width : defaultWidth)
+        width: runnerColumns.visible && runnerColumns.searchResultsPresent
+            ? runnerColumns.visibleChildren[0].width
+            : (rootList.visible ? rootList.width : mainRow.minimumMainWidth)
 
         focus: !Kirigami.InputMethod.willShowOnActive
 
@@ -417,7 +426,7 @@ PlasmaComponents3.ScrollView {
 
                 PropertyChanges {
                     searchField.anchors.leftMargin: undefined
-                    searchField.anchors.rightMargin: sideBar.width + searchField.spacing
+                    searchField.anchors.rightMargin: sideBar.visible ? sideBar.width + spacing : 0
                 }
             }
         ]
@@ -520,6 +529,11 @@ PlasmaComponents3.ScrollView {
             mouseMoved = true
         } else {
             enabled = false // this immediately triggers other hover events when bound to their hoverEnabled
+        }
+
+        onPressed: event => {
+            enabled = false
+            event.accepted = false
         }
     }
 }

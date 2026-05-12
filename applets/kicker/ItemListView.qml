@@ -23,7 +23,12 @@ PlasmaComponents3.ScrollView {
     signal interactionConcluded
 
     // can't use effectiveScrollBarWidth, it causes binding loops
-    readonly property var actualScrollBarWidth: (itemList.contentHeight > itemList.height ? PlasmaComponents3.ScrollBar.vertical.width : 0)
+    readonly property int actualScrollBarWidth: scrollBarVisible ? PlasmaComponents3.ScrollBar.vertical.width : 0
+    property bool scrollBarVisible
+    Binding on scrollBarVisible {
+        value: itemList.contentHeight > itemList.height
+        delayed: true // this needs to be delayed or it can get stuck in a resize loop
+    }
     property Item mainSearchField: null
     property Kicker.SubMenu dialog: null
     property Kicker.SubMenu childDialog: null
@@ -93,14 +98,16 @@ PlasmaComponents3.ScrollView {
     Keys.forwardTo: [itemList.mainSearchField]
 
     onHoveredChanged: {
-        if (hovered) {
-            resetIndexTimer.stop();
-        } else if (itemList.childDialog && listView.currentIndex != itemList.childDialog?.index) {
-            listView.currentIndex = childDialog.index
-        } else if ((!itemList.childDialog || !itemList.dialog)
-            && (!itemList.currentItem || !(itemList.currentItem as ItemListDelegate).menu.opened)) {
-            resetIndexTimer.start();
-        }
+        Qt.callLater( () =>{
+            if (hovered) {
+                resetIndexTimer.stop();
+            } else if (itemList.childDialog && listView.currentIndex != itemList.childDialog?.index) {
+                listView.currentIndex = childDialog.index
+            } else if ((!itemList.childDialog || !itemList.dialog)
+                && (!itemList.currentItem || !(itemList.currentItem as ItemListDelegate).menu.opened)) {
+                resetIndexTimer.start();
+            }
+        })
     }
 
     ListView {
@@ -156,13 +163,6 @@ PlasmaComponents3.ScrollView {
                 }
             }
 
-            Connections {
-                target: itemList.mainSearchField
-
-                function onTextChanged() {
-                    listView.maxDelegateImplicitWidth = 0
-                }
-            }
             onImplicitWidthChanged: {
                 listView.maxDelegateImplicitWidth = Math.max(listView.maxDelegateImplicitWidth, implicitWidth)
             }

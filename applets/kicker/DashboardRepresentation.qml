@@ -76,12 +76,14 @@ Kicker.DashboardWindow {
 
     function reset() {
         searchField.clear();
+        searchField.forceActiveFocus(Qt.OtherFocusReason)
         globalFavoritesGrid.currentIndex = -1;
         systemFavoritesGrid.currentIndex = -1;
         filterList.currentIndex = 0;
         filterList.applyFilter();
         mainGrid.currentIndex = -1;
         filterList.model = rootModel;
+        hoverBlock.reset();
     }
 
     mainItem: MouseArea {
@@ -104,7 +106,11 @@ Kicker.DashboardWindow {
         // complete transparency.
         Rectangle {
             anchors.fill: parent
-            color: Kirigami.Theme.backgroundColor
+            // Intentionally hardcoded to black in dark mode because any other color
+            // looks terrible here. Any bug reports about illegible text or icons
+            // should be considered a color scheme error and sent back to the user
+            // or their distro.
+            color: Plasmoid.configuration.forceDarkMode ? "black" : Kirigami.Theme.backgroundColor
             opacity: 0.737
         }
 
@@ -227,6 +233,7 @@ Kicker.DashboardWindow {
             y: (middleRow.anchors.topMargin / 2) - (root.smallScreen ? (height/10) : 0)
             width: Kirigami.Units.gridUnit * 24
             font.pointSize: dummyHeading.font.pointSize * 1.5
+            focus: true
 
             onTextChanged: {
                 root.runnerModel.query = searchField.text
@@ -239,15 +246,19 @@ Kicker.DashboardWindow {
                 }
             }
 
-            Keys.forwardTo: runnerGrid.visible && runnerGrid.firstGrid ? [runnerGrid.firstGrid.view] : []
-
             function clear() {
                 text = "";
             }
 
+            Keys.priority: Keys.AfterItem
             Keys.onTabPressed: {
                 if (root.runnerModel.count) {
+                    focus = false
                     mainColumn.tryActivate(0, 0);
+                } else if (mainGrid.visible && mainGrid.count) {
+                    mainGrid.tryActivate(0, 0);
+                } else if (allAppsGrid.visible && allAppsGrid.count) {
+                    allAppsGrid.tryActivate(0, 0);
                 } else {
                     systemFavoritesGrid.tryActivate(0, 0);
                 }
@@ -259,8 +270,61 @@ Kicker.DashboardWindow {
                     systemFavoritesGrid.tryActivate(0, 0);
                 }
             }
+            Keys.onDownPressed: event => {
+                if (mainGrid.visible) {
+                    mainGrid.tryActivate(0, 0);
+                } else if (allAppsGrid.visible) {
+                    allAppsGrid.tryActivate(0, 0);
+                } else if (runnerGrid.visible) {
+                    if (runnerGrid.firstGrid.currentIndex != -1) {
+                        runnerGrid.firstGrid.view.moveCurrentIndexDown()
+                        let currentRow = runnerGrid.firstGrid.currentRow()
+                        let currentCol = runnerGrid.firstGrid.currentCol()
+                        focus = false
+                        runnerGrid.tryActivate(currentRow, currentCol)
+                    } else {
+                        focus = false
+                        runnerGrid.tryActivate(0,0)
+                    }
+                } else {
+                    event.accepted = false
+                }
+            }
+            Keys.onRightPressed: event => {
+                if (runnerGrid.visible && runnerGrid.firstGrid.currentIndex != -1 &&
+                    (Application.layoutDirection == Qt.LeftToRight || runnerGrid.firstGrid.currentIndex != 0)) {
+                    runnerGrid.firstGrid.view.moveCurrentIndexRight()
+                    let currentRow = runnerGrid.firstGrid.currentRow()
+                    let currentCol = runnerGrid.firstGrid.currentCol()
+                    focus = false
+                    runnerGrid.tryActivate(currentRow, currentCol)
+                } else {
+                    event.accepted = false
+                }
+            }
+            Keys.onLeftPressed: event => {
+                if (runnerGrid.visible && runnerGrid.firstGrid.currentIndex != -1 &&
+                    (Application.layoutDirection == Qt.RightToLeft || runnerGrid.firstGrid.currentIndex != 0)) {
+                    runnerGrid.firstGrid.view.moveCurrentIndexLeft()
+                    let currentRow = runnerGrid.firstGrid.currentRow()
+                    let currentCol = runnerGrid.firstGrid.currentCol()
+                    focus = false
+                    runnerGrid.tryActivate(currentRow, currentCol)
+                    } else {
+                        event.accepted = false
+                    }
+            }
+            Keys.onReturnPressed: event => {
+                // this mostly should apply to the runner grid, but there are a few ways to
+                // have focus on the search field and have something visually selected, so
+                // fall back to the other possible grids
+                let currentDelegate = runnerGrid.visible  ? runnerGrid.firstGrid?.currentItem :
+                                      allAppsGrid.visible ? allAppsGrid.firstGrid?.currentItem :
+                                                            mainGrid.currentItem
+                currentDelegate.Keys.returnPressed(event)
+            }
+            Keys.onEnterPressed: event => Keys.returnPressed(event)
         }
-
 
         Row {
             id: middleRow
@@ -352,6 +416,7 @@ Kicker.DashboardWindow {
 
                     model: root.globalFavorites
 
+                    hoverEnabled: !hoverBlock.enabled
                     dropEnabled: true
 
                     opacity: enabled ? 1.0 : 0.3
@@ -371,7 +436,10 @@ Kicker.DashboardWindow {
                         systemFavoritesGrid.tryActivate(0, currentCol());
                     }
 
-                    Keys.onTabPressed: mainColumn.tryActivate(0, 0);
+                    Keys.onTabPressed: {
+                        currentIndex = -1
+                        searchField.forceActiveFocus(Qt.TabFocusReason)
+                    }
                     Keys.onBacktabPressed: systemFavoritesGrid.tryActivate(0, 0);
 
                     Binding {
@@ -399,6 +467,7 @@ Kicker.DashboardWindow {
 
                     model: root.systemFavorites
 
+                    hoverEnabled: !hoverBlock.enabled
                     dropEnabled: true
 
                     onInteractionConcluded: root.interactionConcluded()
@@ -418,7 +487,7 @@ Kicker.DashboardWindow {
                         if (globalFavoritesGrid.enabled) {
                             globalFavoritesGrid.tryActivate(0, 0);
                         } else {
-                            mainColumn.tryActivate(0, 0);
+                            searchField.forceActiveFocus(Qt.TabFocusReason)
                         }
                     }
                     Keys.onBacktabPressed: {
@@ -560,6 +629,8 @@ Kicker.DashboardWindow {
                         cellHeight: cellWidth
                         iconSize: root.iconSize
 
+                        hoverEnabled: !hoverBlock.enabled
+
                         model: funnelModel
 
                         onInteractionConcluded: root.interactionConcluded()
@@ -577,6 +648,16 @@ Kicker.DashboardWindow {
                         onKeyNavRight: {
                             filterListScrollArea.focus = true;
                         }
+
+                        onKeyNavUp: {
+                            currentIndex = -1
+                            searchField.forceActiveFocus(Qt.TabFocusReason)
+                        }
+
+                        Keys.onBacktabPressed: event => {
+                            currentIndex = -1
+                            event.accepted = false // pass to mainColumn handler
+                        }
                     }
                 }
 
@@ -592,6 +673,8 @@ Kicker.DashboardWindow {
                     height: systemFavoritesGrid.y + systemFavoritesGrid.height
                     cellSize: root.cellSize
                     iconSize: root.iconSize
+
+                    hoverEnabled: !hoverBlock.enabled
 
                     visible: opacity !== 0.0
 
@@ -622,6 +705,11 @@ Kicker.DashboardWindow {
                     onKeyNavRight: subGridIndex => {
                         filterListScrollArea.focus = true;
                     }
+
+                    onKeyNavUp: {
+                        firstGrid.currentIndex = -1
+                        searchField.forceActiveFocus(Qt.TabFocusReason)
+                    }
                 }
 
                 ItemMultiGridView {
@@ -641,6 +729,7 @@ Kicker.DashboardWindow {
 
                     model: root.runnerModel
 
+                    hoverEnabled: !hoverBlock.enabled
                     grabFocus: false
 
                     opacity: root.searching ? 1.0 : 0.0
@@ -665,6 +754,11 @@ Kicker.DashboardWindow {
                         var targetRow = row + 1 > globalFavoritesGrid.rows ? row - globalFavoritesGrid.rows : row;
                         target.tryActivate(targetRow, favoritesColumn.columns - 1);
                     }
+
+                    onKeyNavUp: {
+                        firstGrid.currentIndex = -1
+                        searchField.forceActiveFocus(Qt.TabFocusReason)
+                    }
                 }
 
                 Keys.onTabPressed: {
@@ -675,11 +769,7 @@ Kicker.DashboardWindow {
                     }
                 }
                 Keys.onBacktabPressed: {
-                    if (globalFavoritesGrid.enabled) {
-                        globalFavoritesGrid.tryActivate(0, 0);
-                    } else {
-                        systemFavoritesGrid.tryActivate(0, 0);
-                    }
+                    searchField.forceActiveFocus(Qt.BacktabFocusReason)
                 }
             }
 
@@ -707,7 +797,7 @@ Kicker.DashboardWindow {
                     height: mainGrid.height
 
                     enabled: !root.searching
-                    hoverEnabled: true
+                    hoverEnabled: !hoverBlock.enabled
 
                     property alias currentIndex: filterList.currentIndex
 
@@ -756,7 +846,7 @@ Kicker.DashboardWindow {
 
                             width: ListView.view.width
                             height: implicitHeight
-                            hoverEnabled: true
+                            hoverEnabled: !hoverBlock.enabled
                             baseModel: filterList.model
                             favoritesModel: baseModel.favoritesModel
 
@@ -874,6 +964,31 @@ Kicker.DashboardWindow {
         onClicked: mouse => {
             if (mouse.button === Qt.LeftButton) {
                 root.interactionConcluded()
+            }
+        }
+
+        MouseArea {
+            id: hoverBlock  // don't hover-activate until mouse is moved to not interfere with keyboard use
+            anchors.fill: parent
+            hoverEnabled: true
+            propagateComposedEvents: true // clicking should still work if hovering is blocked
+
+            property bool mouseMoved: false
+
+            function reset() {
+                mouseMoved = false
+                enabled = true
+            }
+
+            onPositionChanged: if (!mouseMoved) {
+                mouseMoved = true
+            } else {
+                enabled = false // this immediately triggers other hover events when bound to their hoverEnabled
+            }
+
+            onPressed: event => {
+                enabled = false
+                event.accepted = false
             }
         }
     }

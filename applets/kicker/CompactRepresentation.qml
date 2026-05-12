@@ -31,15 +31,15 @@ Item {
     onHeightChanged: updateSizeHints()
 
     function updateSizeHints(): void {
-        if (useCustomButtonImage) {
+        if (useCustomButtonImage && imageFallback.visible) {
             if (vertical) {
-                const scaledHeight = Math.floor(parent?.width * (buttonIcon.implicitHeight / buttonIcon.implicitWidth));
+                const scaledHeight = Math.floor(parent?.width * (imageFallback.implicitHeight / imageFallback.implicitWidth));
                 root.Layout.minimumWidth = -1;
                 root.Layout.minimumHeight = scaledHeight;
                 root.Layout.maximumWidth = Kirigami.Units.iconSizes.huge;
                 root.Layout.maximumHeight = scaledHeight;
             } else {
-                const scaledWidth = Math.floor(parent?.height * (buttonIcon.implicitWidth / buttonIcon.implicitHeight));
+                const scaledWidth = Math.floor(parent?.height * (imageFallback.implicitWidth / imageFallback.implicitHeight));
                 root.Layout.minimumWidth = scaledWidth;
                 root.Layout.minimumHeight = -1;
                 root.Layout.maximumWidth = scaledWidth;
@@ -58,18 +58,36 @@ Item {
 
         anchors.fill: parent
 
+        active: mouseArea.containsMouse
+        source: root.useCustomButtonImage ? Plasmoid.configuration.customButtonImage : Plasmoid.configuration.icon
+        visible: !imageFallback.visible
+
+        // A custom icon could also be rectangular, but Kirigami.Icon only supports square ones.
+        // If a square, custom, icon is given, we load it using Kirigami.Icon and round it to
+        // the nearest icon size again to avoid scaling artifacts.
+        roundToIconSize: true
+
+        onSourceChanged: root.updateSizeHints()
+        onVisibleChanged: root.updateSizeHints()
+    }
+
+    Image {
+        id: imageFallback
+
         readonly property double aspectRatio: root.vertical
             ? implicitHeight / implicitWidth
             : implicitWidth / implicitHeight
 
-        active: mouseArea.containsMouse
-        source: root.useCustomButtonImage ? Plasmoid.configuration.customButtonImage : Plasmoid.configuration.icon
+        anchors.fill: parent
 
-        // A custom icon could also be rectangular. However, if a square, custom, icon is given, assume it
-        // to be an icon and round it to the nearest icon size again to avoid scaling artifacts.
-        roundToIconSize: !root.useCustomButtonImage || aspectRatio === 1
+        visible: root.useCustomButtonImage && status == Image.Ready && aspectRatio !== 1 && source !== ""
+        mipmap: true
 
+        source: Plasmoid.icon.startsWith("/") ? "file:" + Plasmoid.icon.split("/").map(encodeURIComponent).join("/") : ""
         onSourceChanged: root.updateSizeHints()
+        onVisibleChanged: root.updateSizeHints()
+
+        fillMode: Image.PreserveAspectFit
     }
 
     MouseArea {

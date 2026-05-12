@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-desktop\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-08 00:45+0000\n"
-"PO-Revision-Date: 2025-10-26 11:51+0100\n"
+"POT-Creation-Date: 2026-01-15 03:00+0000\n"
+"PO-Revision-Date: 2026-03-01 20:22+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.08.2\n"
+"X-Generator: Lokalize 26.03.70\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -138,20 +138,17 @@ msgid "NVidia Shield"
 msgstr "NVidia Shield"
 
 #: device.cpp:41
-#, fuzzy, kde-format
-#| msgid "Switch Left Joycon"
+#, kde-format
 msgid "Switch Left Joy-Con"
 msgstr "Switch Joy-Con (venstre)"
 
 #: device.cpp:42
-#, fuzzy, kde-format
-#| msgid "Switch Right Joycon"
+#, kde-format
 msgid "Switch Right Joy-Con"
 msgstr "Switch Joy-Con (høgre)"
 
 #: device.cpp:43
-#, fuzzy, kde-format
-#| msgid "Switch Paired Joycon"
+#, kde-format
 msgid "Switch Paired Joy-Con"
 msgstr "Switch Joy-Con (para)"
 
@@ -317,35 +314,36 @@ msgctxt "Device name and path"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: ui/main.qml:35
+#: ui/main.qml:34
 #, kde-format
 msgctxt "@option:check Allow using game controllers as a pointer and keyboard"
 msgid "Allow using as pointer and keyboard"
-msgstr ""
+msgstr "Tillat bruk som styrepeikar og tastatur"
 
-#: ui/main.qml:44
+#: ui/main.qml:43
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
 "Allow game controllers to act like pointer and keyboard devices in Plasma "
 "and non-game applications.<nl/><nl/>Games can always use the controller."
 msgstr ""
+"Tillat at spelkontrollarar vert brukte som styrepeikar og tastatur i Plasma "
+"og program som ikkje er spel.<nl/><nl/>Spel kan alltid brukar "
+"spelkontrollarane."
 
-#: ui/main.qml:52
-#, fuzzy, kde-format
-#| msgid "No game controllers found"
+#: ui/main.qml:51
+#, kde-format
 msgctxt "@info placeholdermessage text"
 msgid "No game controllers found"
 msgstr "Fann ingen spelkontrollarar"
 
-#: ui/main.qml:53
-#, fuzzy, kde-format
-#| msgid "Connect a wired or wireless controller"
+#: ui/main.qml:52
+#, kde-format
 msgctxt "@info:usagetip placeholdermessage text"
 msgid "Connect a wired or wireless controller"
 msgstr "Kopla til ein kabla/trådlaus spelkontrollar"
 
-#: ui/main.qml:83
+#: ui/main.qml:82
 #, kde-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -354,51 +352,55 @@ msgid ""
 "controller, or enable automatic blocking by allowing the use as pointer and "
 "keyboard."
 msgstr ""
+"Systemet kan automatisk gå i dvale eller låsa skjermen når (berre) spel­"
+"kontrollaren vert brukt. Vurdera å manuelt blokkera dette når du brukar spel­"
+"kontrollaren, eller slå på automatisk blokkering vera å tillata av spel­"
+"kontrollaren vert brukt som styrepeikar og tastatur."
 
-#: ui/main.qml:98
+#: ui/main.qml:97
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Device:"
 msgstr "Eining:"
 
-#: ui/main.qml:120
+#: ui/main.qml:119
 #, kde-format
 msgctxt ""
 "@label game controller device type (wheel, joystick, game controller, etc.)"
 msgid "Device type:"
 msgstr "Type eining:"
 
-#: ui/main.qml:136
+#: ui/main.qml:135
 #, kde-format
 msgctxt "@label game controller controller type (which brand, etc.)"
 msgid "Controller type:"
 msgstr "Type spelkontrollar:"
 
-#: ui/main.qml:152
+#: ui/main.qml:151
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection type:"
 msgstr "Type tilkopling:"
 
-#: ui/main.qml:174
+#: ui/main.qml:173
 #, kde-format
 msgctxt "@label Visual representation of the axis position for the left axis"
 msgid "Left position:"
 msgstr "Venstre posisjon:"
 
-#: ui/main.qml:186
+#: ui/main.qml:185
 #, kde-format
 msgctxt "@label Visual representation of the axis position for the right axis"
 msgid "Right position:"
 msgstr "Høgre posisjon:"
 
-#: ui/main.qml:205
+#: ui/main.qml:204
 #, kde-format
 msgctxt "@label Gamepad buttons"
 msgid "Buttons:"
 msgstr "Knappar:"
 
-#: ui/main.qml:227
+#: ui/main.qml:226
 #, kde-format
 msgctxt "@label Gamepad axes (sticks)"
 msgid "Axes:"

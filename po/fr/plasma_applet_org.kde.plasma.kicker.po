@@ -12,10 +12,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-13 08:43+0000\n"
+"POT-Creation-Date: 2026-04-05 02:42+0000\n"
 "PO-Revision-Date: 2026-01-09 18:29+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
-"Language-Team: \n"
+"Language-Team: fr\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Accelerator-Marker: &\n"
 "X-Environment: kde\n"
-"X-Generator: Lokalize 25.12.0\n"
+"X-Generator: Lokalize 25.12.3\n"
 "X-Text-Markup: kde4\n"
 
 #: code/tools.js:53
@@ -219,7 +219,7 @@ msgstr ""
 "Cette fonctionnalité utilise les couleurs complémentaires de votre palette "
 "de couleurs, qui comporte généralement un arrière-plan sombre."
 
-#: DashboardRepresentation.qml:309
+#: DashboardRepresentation.qml:373
 #, kde-format
 msgctxt "@title:group for column with app and system action grids"
 msgid "Favorites"
@@ -243,13 +243,13 @@ msgctxt "@action:inmenu launches kmenuedit"
 msgid "Edit Applications…"
 msgstr "Éditer les applications…"
 
-#: MenuRepresentation.qml:170
+#: MenuRepresentation.qml:177
 #, kde-format
 msgctxt "@title:group accessible name for favorite group in sidebar"
 msgid "Favorites"
 msgstr "Préférés"
 
-#: MenuRepresentation.qml:348
+#: MenuRepresentation.qml:353
 #, kde-format
 msgctxt "@info:status"
 msgid "No matches"

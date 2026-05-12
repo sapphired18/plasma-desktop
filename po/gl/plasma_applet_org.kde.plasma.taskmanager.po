@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_tasks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-08 00:45+0000\n"
+"POT-Creation-Date: 2026-03-17 02:41+0000\n"
 "PO-Revision-Date: 2025-06-19 09:57+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 25.04.2\n"
 
-#: backend.cpp:284
+#: backend.cpp:288
 #, kde-format
 msgctxt "Show all user Places"
 msgid "%1 more Place…"
@@ -32,40 +32,40 @@ msgid_plural "%1 more Places…"
 msgstr[0] "%1 lugar máis…"
 msgstr[1] "%1 lugares máis…"
 
-#: backend.cpp:368
+#: backend.cpp:372
 #, kde-format
 msgid "Recent Downloads"
 msgstr "Descargas recentes"
 
-#: backend.cpp:370
+#: backend.cpp:374
 #, kde-format
 msgid "Recent Connections"
 msgstr "Conexións recentes"
 
-#: backend.cpp:372
+#: backend.cpp:376
 #, kde-format
 msgid "Recent Places"
 msgstr "Lugares recentes"
 
-#: backend.cpp:381
+#: backend.cpp:385
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Forget Recent Downloads"
 msgstr "Esquecer as descargas recentes"
 
-#: backend.cpp:383
+#: backend.cpp:387
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Forget Recent Connections"
 msgstr "Esquecer as conexións recentes"
 
-#: backend.cpp:385
+#: backend.cpp:389
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Forget Recent Places"
 msgstr "Esquecer os lugares recentes"
 
-#: backend.cpp:387
+#: backend.cpp:391
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Forget Recent Files"
@@ -870,13 +870,13 @@ msgctxt "@action:inmenu"
 msgid "&Close"
 msgstr "&Pechar"
 
-#: qml/Task.qml:153
+#: qml/Task.qml:155
 #, kde-format
 msgctxt "@info:usagetip %1 application name"
 msgid "Launch %1"
 msgstr "Iniciar %1"
 
-#: qml/Task.qml:158
+#: qml/Task.qml:160
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "There is %1 new message."
@@ -884,32 +884,32 @@ msgid_plural "There are %1 new messages."
 msgstr[0] "Hai %1 nova mensaxe."
 msgstr[1] "Hai %1 novas mensaxes."
 
-#: qml/Task.qml:166
+#: qml/Task.qml:168
 #, kde-format
 msgctxt "@info:usagetip %1 task name"
 msgid "Show Task tooltip for %1"
 msgstr "Amosar a indicación emerxente de tarefa de %1."
 
-#: qml/Task.qml:170
+#: qml/Task.qml:172
 #, kde-format
 msgctxt "@info:usagetip %1 task name"
 msgid "Show windows side by side for %1"
 msgstr "Amosar as xanela unha a carón da outra para %1."
 
-#: qml/Task.qml:175
+#: qml/Task.qml:177
 #, kde-format
 msgctxt "@info:usagetip %1 task name"
 msgid "Open textual list of windows for %1"
 msgstr "Abrir unha lista de texto das xanelas para %1."
 
-#: qml/Task.qml:179
+#: qml/Task.qml:181
 #, fuzzy, kde-format
 #| msgid "Activate %1"
 msgctxt "@info:usagetip %1 task name"
 msgid "Activate %1"
 msgstr "Activar %1"
 
-#: qml/ToolTipInstance.qml:189
+#: qml/ToolTipInstance.qml:201
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@item:inlistbox Part of a sentence: 'Middle-clicking any task closes "
@@ -919,61 +919,61 @@ msgctxt "@info:tooltip Close this window"
 msgid "Close window"
 msgstr "Pecha a xanela ou o grupo"
 
-#: qml/ToolTipInstance.qml:459
+#: qml/ToolTipInstance.qml:471
 #, kde-format
 msgctxt "button to unmute app"
 msgid "Unmute %1"
 msgstr "Activar o son de %1"
 
-#: qml/ToolTipInstance.qml:460
+#: qml/ToolTipInstance.qml:472
 #, kde-format
 msgctxt "button to mute app"
 msgid "Mute %1"
 msgstr "Silenciar %1"
 
-#: qml/ToolTipInstance.qml:478
+#: qml/ToolTipInstance.qml:490
 #, kde-format
 msgctxt "Accessibility data on volume slider"
 msgid "Adjust volume for %1"
 msgstr "Axustar o volume de %1"
 
-#: qml/ToolTipInstance.qml:494
+#: qml/ToolTipInstance.qml:506
 #, kde-format
 msgctxt "volume percentage"
 msgid "%1%"
 msgstr "%1%"
 
-#: qml/ToolTipInstance.qml:498
+#: qml/ToolTipInstance.qml:510
 #, kde-format
 msgctxt "only used for sizing, should be widest possible string"
 msgid "100%"
 msgstr "100%"
 
-#: qml/ToolTipInstance.qml:514
+#: qml/ToolTipInstance.qml:526
 #, kde-format
 msgctxt "Comma-separated list of desktops"
 msgid "On %1"
 msgstr "En %1"
 
-#: qml/ToolTipInstance.qml:517
+#: qml/ToolTipInstance.qml:529
 #, kde-format
 msgctxt "Comma-separated list of desktops"
 msgid "Pinned to all desktops"
 msgstr "Fixada en todos os escritorios."
 
-#: qml/ToolTipInstance.qml:523
+#: qml/ToolTipInstance.qml:535
 #, kde-format
 msgctxt "Which virtual desktop a window is currently on"
 msgid "Available on all activities"
 msgstr "Dispoñíbel en todas as actividades"
 
-#: qml/ToolTipInstance.qml:533
+#: qml/ToolTipInstance.qml:545
 #, kde-format
 msgctxt "Activities a window is currently on (apart from the current one)"
 msgid "Also available on %1"
 msgstr "Tamén dispoñíbel en %1"
 
-#: qml/ToolTipInstance.qml:537
+#: qml/ToolTipInstance.qml:549
 #, kde-format
 msgctxt "Which activities a window is currently on"
 msgid "Available on %1"

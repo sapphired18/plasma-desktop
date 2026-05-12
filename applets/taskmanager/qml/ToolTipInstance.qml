@@ -127,9 +127,15 @@ ColumnLayout {
                 // window title
                 PlasmaComponents3.Label {
                     id: winTitle
-                    maximumLineCount: 1
                     Layout.fillWidth: true
+                    // For horizontal grouped tasks, leave room for two lines so thumbnails align
+                    Layout.preferredHeight: root.orientation === ListView.Horizontal && lineCount === 1
+                        ? implicitHeight * 2
+                        : implicitHeight
+                    maximumLineCount: 2
+                    wrapMode: Text.Wrap
                     elide: Text.ElideRight
+                    verticalAlignment: Text.AlignVCenter
                     property bool somethingVisible: (thumbnailSourceItem.visible ||
                         appNameHeading.visible || subtext.visible)
                     text: ((root.titleIncludesTrack && playerController.active) ||
@@ -143,9 +149,15 @@ ColumnLayout {
                 // subtext
                 PlasmaComponents3.Label {
                     id: subtext
-                    maximumLineCount: 2
                     Layout.fillWidth: true
+                    // For horizontal grouped tasks, leave room for two lines so thumbnails align
+                    Layout.preferredHeight: root.orientation === ListView.Horizontal && lineCount === 1
+                        ? implicitHeight * 2
+                        : implicitHeight
+                    maximumLineCount: 2
+                    wrapMode: Text.Wrap
                     elide: Text.ElideRight
+                    verticalAlignment: Text.AlignVCenter
                     text: toolTipDelegate.isWin ? root.generateSubText() : ""
                     color: (headerHoverHandler.visible && headerHoverHighlight.pressed) ? Kirigami.Theme.highlightedTextColor : Kirigami.Theme.textColor
                     opacity: 0.75

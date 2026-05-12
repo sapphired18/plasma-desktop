@@ -24,6 +24,7 @@
   <name xml:lang="eu">KDE Plasma mahaigaina</name>
   <name xml:lang="fi">KDE Plasma -työpöytä</name>
   <name xml:lang="fr">Bureau Plasma de KDE</name>
+  <name xml:lang="ga">Deasc Plasma KDE</name>
   <name xml:lang="gl">Escritorio Plasma de KDE</name>
   <name xml:lang="he">שולחן העבודה KDE פלזמה</name>
   <name xml:lang="hi">केडीई प्लास्मा डेस्कटॉप</name>
@@ -42,7 +43,7 @@
   <name xml:lang="pa">KDE ਪਲਾਜ਼ਮਾ ਡੈਸਕਟਾਪ</name>
   <name xml:lang="pl">Pulpit Plazmy KDE</name>
   <name xml:lang="pt">Área de Trabalho Plasma do KDE</name>
-  <name xml:lang="pt-BR">Área de trabalho Plasma do KDE</name>
+  <name xml:lang="pt-BR">Área de trabalho KDE Plasma</name>
   <name xml:lang="ro">Biroul KDE Plasma</name>
   <name xml:lang="ru">Рабочий стол KDE Plasma</name>
   <name xml:lang="sa">केडीई प्लाज्मा डेस्कटॉप</name>
@@ -78,6 +79,7 @@
   <summary xml:lang="eu">KDEren mahaigain osoko esperientzia. Erraza izatez, ahaltsua behar denean</summary>
   <summary xml:lang="fi">KDE:n täydellinen työpöytäkokemus. Oletuksena yksinkertainen, tarvittaessa tehokas</summary>
   <summary xml:lang="fr">L'expérience de bureau complète de KDE. Simple par défaut, puissant si nécessaire</summary>
+  <summary xml:lang="ga">Eispéireas deisce iomlán KDE. Simplí de réir réamhshocraithe, cumhachtach nuair is gá</summary>
   <summary xml:lang="gl">Experiencia de escritorio completa de KDE. Simple de primeiras, potente cando cómpre</summary>
   <summary xml:lang="he">חוויית שולחן העבודה המלאה של KDE. פשוטה מיסודה, עוצמתית לפי הצורך</summary>
   <summary xml:lang="hi">केडीई का संपूर्ण डेस्कटॉप अनुभव। पूर्वन्यस्त रूप से सरल, आवश्यकता पड़ने पर शक्तिशाली</summary>
@@ -132,7 +134,7 @@
       <caption xml:lang="ca-valencia">Utilitza Plasma com a escriptori</caption>
       <caption xml:lang="cs">Plasma je použita jako pracovní prostředí</caption>
       <caption xml:lang="da">Plasma bruges som skrivebord</caption>
-      <caption xml:lang="de">Plasma als eine Arbeitsfläche benutzt</caption>
+      <caption xml:lang="de">Plasma als eine Arbeitsfläche verwendet</caption>
       <caption xml:lang="el">Χρήση Plasma ως επιφάνεια εργασίας</caption>
       <caption xml:lang="en-GB">Plasma being used as a desktop</caption>
       <caption xml:lang="eo">Plasma estante uzata kiel labortablo</caption>
@@ -141,6 +143,7 @@
       <caption xml:lang="eu">Plasma mahaigain gisa erabilita</caption>
       <caption xml:lang="fi">Plasma on käytössä työpöytänä</caption>
       <caption xml:lang="fr">Plasma utilisé comme bureau</caption>
+      <caption xml:lang="ga">Plasma á úsáid mar dheasc</caption>
       <caption xml:lang="gl">Plasma usado como escritorio.</caption>
       <caption xml:lang="he">פלזמה משמשת כשולחן העבודה</caption>
       <caption xml:lang="hi">प्लाज्मा का उपयोग डेस्कटॉप के रूप में किया जा रहा है</caption>
@@ -182,9 +185,9 @@
   </screenshots>
   <compulsory_for_desktop>KDE</compulsory_for_desktop>
   <releases>
-    <release version="6.3.90" date="2025-05-15"/>
-    <release version="6.2.0" date="2024-10-08"/>
-    <release version="6.1.0" date="2024-06-18"/>
-    <release version="6.0.5" date="2024-05-21"/>
+    <release version="6.6.5" date="2026-05-12"/>
+    <release version="6.6.4" date="2026-04-06"/>
+    <release version="6.6.3" date="2026-03-17"/>
+    <release version="6.6.2" date="2026-03-03"/>
   </releases>
 </component>

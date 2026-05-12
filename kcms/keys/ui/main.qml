@@ -82,7 +82,10 @@ KCM.AbstractKCM {
                 text: i18nc("@action:menu End of the sentence 'Add New Command or Script…'", "Command or Script…")
                 Accessible.name: i18nc("@action:menu accessible", "Add new command or script")
                 Accessible.role: Accessible.MenuItem
-                onTriggered: addCommandDialog.open()
+                onTriggered: {
+                    addCommandDialog.editing = false
+                    addCommandDialog.open()
+                }
             }
         }
     ]
@@ -174,12 +177,17 @@ KCM.AbstractKCM {
                     model: kcm.filteredModel
                     activeFocusOnTab: true
                     onActiveFocusChanged: currentIndex = Math.max(currentIndex, 0)
-                    add: Transition {
-                        id: transition
-                        PropertyAction {
-                            target: components
-                            property: "currentIndex"
-                            value: transition.ViewTransition.index
+
+                    Connections {
+                        target: kcm.shortcutsModel
+                        function onRowsInserted(parent, first, last) {
+                            const sourceIndex = kcm.shortcutsModel.index(last, 0)
+                            Qt.callLater(() => {
+                                const proxyIndex = kcm.filteredModel.mapFromSource(sourceIndex)
+                                if (proxyIndex.valid) {
+                                    components.currentIndex = proxyIndex.row
+                                }
+                            })
                         }
                     }
 
@@ -258,11 +266,11 @@ KCM.AbstractKCM {
                                 text: i18nc("@action:button %1 is the name of a shortcut category", "Remove all shortcuts for %1", model.display)
                                 display: QQC2.AbstractButton.IconOnly
 
-                                visible: model.section !== Private.ComponentType.CommonAction
-                                         && model.isRemovable
+                                visible: (model?.section !== Private.ComponentType.CommonAction
+                                         && model?.isRemovable
                                          && !exportActive
-                                         && !model.pendingDeletion
-                                         && (componentDelegate.hovered || componentDelegate.ListView.isCurrentItem)
+                                         && !model?.pendingDeletion
+                                         && (componentDelegate.hovered || componentDelegate.ListView.isCurrentItem)) ?? false
                                 onClicked: {
                                     model.pendingDeletion = true;
                                     componentDelegate.click();
@@ -329,7 +337,13 @@ KCM.AbstractKCM {
                         }
                     }
 
-                    onCurrentItemChanged: dm.rootIndex = kcm.filteredModel.index(currentIndex, 0)
+                    onCurrentItemChanged: {
+                        if (!currentItem) {
+                            currentIndex = -1;
+                            return;
+                        }
+                        dm.rootIndex = kcm.filteredModel.index(currentIndex, 0)
+                    }
                     onCurrentIndexChanged: {
                         shortcutsList.selectedIndex = -1;
                     }
@@ -453,12 +467,7 @@ KCM.AbstractKCM {
                 }
             }
         }
-        onRejected: {
-            if (addCommandDialog.editing) {
-                addCommandDialog.editing = false;
-            }
-        }
-
+        
         property Kirigami.Action addCommandAction: Kirigami.Action {
             text: addCommandDialog.editing ? i18nc("@action:button in dialog, save changes to custom command", "Save") : i18nc("@action:button in dialog, add entry as new custom command", "Add")
             Accessible.name: addCommandDialog.editing
@@ -468,14 +477,10 @@ KCM.AbstractKCM {
             enabled: cmdField.length > 0
             onTriggered: {
                 if (addCommandDialog.editing) {
-                    const newLabel = kcm.editCommand(addCommandDialog.componentName, nameField.text, cmdField.text);
-                    if (addCommandDialog.commandListItemDelegate) {
-                        addCommandDialog.commandListItemDelegate.text = newLabel;
-                    }
+                    kcm.editCommand(addCommandDialog.componentName, nameField.text, cmdField.text);
                 } else {
                     kcm.addCommand(cmdField.text, nameField.text);
                 }
-                addCommandDialog.editing = false;
                 addCommandDialog.close();
             }
         }

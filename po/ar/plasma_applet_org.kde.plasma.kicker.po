@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-13 08:43+0000\n"
+"POT-Creation-Date: 2026-04-05 02:42+0000\n"
 "PO-Revision-Date: 2026-01-08 11:41+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -212,7 +212,7 @@ msgstr ""
 "تستخدم هذه الميزة الألوان التكميلية من مخطّط ألوانك، والتي تتميز عادةً بخلفية "
 "داكنة."
 
-#: DashboardRepresentation.qml:309
+#: DashboardRepresentation.qml:373
 #, kde-format
 msgctxt "@title:group for column with app and system action grids"
 msgid "Favorites"
@@ -236,13 +236,13 @@ msgctxt "@action:inmenu launches kmenuedit"
 msgid "Edit Applications…"
 msgstr "حرّر التّطبيقات..."
 
-#: MenuRepresentation.qml:170
+#: MenuRepresentation.qml:177
 #, kde-format
 msgctxt "@title:group accessible name for favorite group in sidebar"
 msgid "Favorites"
 msgstr "المفضّلة"
 
-#: MenuRepresentation.qml:348
+#: MenuRepresentation.qml:353
 #, kde-format
 msgctxt "@info:status"
 msgid "No matches"

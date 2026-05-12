@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the plasma-desktop package.
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Shinjo Park <kde@peremen.name>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025, 2026 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-desktop\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-08 00:45+0000\n"
-"PO-Revision-Date: 2025-10-09 01:17+0200\n"
+"POT-Creation-Date: 2026-05-02 02:38+0000\n"
+"PO-Revision-Date: 2026-02-03 21:43+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #: inputsequence.cpp:191
 #, kde-format
@@ -136,13 +136,13 @@ msgctxt "@item:inlistbox Map to portion of the screen"
 msgid "Map to Portion"
 msgstr "부분으로 대응"
 
-#: kcmtablet.cpp:268
+#: kcmtablet.cpp:269
 #, kde-format
 msgctxt "Stylus pen button"
 msgid "Pen button %1:"
 msgstr "펜 단추 %1:"
 
-#: kcmtablet.cpp:269
+#: kcmtablet.cpp:270
 #, kde-format
 msgctxt ""
 "@info Meant to be inserted into an existing sentence like 'configuring pen "
@@ -227,8 +227,7 @@ msgstr ""
 "다."
 
 #: ui/ActionDialog.qml:248
-#, fuzzy, kde-format
-#| msgid "Up:"
+#, kde-format
 msgctxt ""
 "@label prefix for configuring Keybind to send when dial/ring is turned "
 "upwards"
@@ -236,8 +235,7 @@ msgid "Up:"
 msgstr "위:"
 
 #: ui/ActionDialog.qml:261
-#, fuzzy, kde-format
-#| msgid "Down:"
+#, kde-format
 msgctxt ""
 "@label prefix for configuring Keybind to send when dial/ring is turned "
 "downwards"
@@ -245,8 +243,7 @@ msgid "Down:"
 msgstr "아래:"
 
 #: ui/ActionDialog.qml:274
-#, fuzzy, kde-format
-#| msgid "Speed:"
+#, kde-format
 msgctxt ""
 "@label:slider Speed for how often this dial/ring should emit key events"
 msgid "Speed:"
@@ -388,29 +385,25 @@ msgid "Cancel"
 msgstr "취소"
 
 #: ui/DisplayTab.qml:46
-#, fuzzy, kde-format
-#| msgid "Map to screen:"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Map to screen:"
 msgstr "화면에 대응:"
 
 #: ui/DisplayTab.qml:73
-#, fuzzy, kde-format
-#| msgid "Orientation:"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Orientation:"
 msgstr "방향:"
 
 #: ui/DisplayTab.qml:79
-#, fuzzy, kde-format
-#| msgid "Not Applicable"
+#, kde-format
 msgctxt "@label substitute for unavailable orientation change"
 msgid "Not Applicable"
 msgstr "적용할 수 없음"
 
 #: ui/DisplayTab.qml:93
-#, fuzzy, kde-format
-#| msgid "Mapped Area:"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Mapped Area:"
 msgstr "대응되는 영역:"
@@ -428,8 +421,7 @@ msgid "%1,%2 - %3×%4"
 msgstr "%1,%2 - %3×%4"
 
 #: ui/ExternalScreenMapping.qml:190
-#, fuzzy, kde-format
-#| msgid "Resize the screen area"
+#, kde-format
 msgctxt "@action:button"
 msgid "Resize the screen area"
 msgstr "화면 영역 크기 조정"
@@ -441,22 +433,19 @@ msgid "%1%,%2% - %3%×%4%"
 msgstr "%1%,%2% - %3%×%4%"
 
 #: ui/ExternalScreenMapping.qml:301
-#, fuzzy, kde-format
-#| msgid "Resize the tablet area"
+#, kde-format
 msgctxt "@action:button"
 msgid "Resize the tablet area"
 msgstr "태블릿 영역 크기 조정"
 
 #: ui/main.qml:38
-#, fuzzy, kde-format
-#| msgid "No drawing tablets found"
+#, kde-format
 msgctxt "@info placeholdermessage text"
 msgid "No drawing tablets found"
 msgstr "그래픽 태블릿을 찾을 수 없음"
 
 #: ui/main.qml:39
-#, fuzzy, kde-format
-#| msgid "Connect a drawing tablet"
+#, kde-format
 msgctxt "@info:usagetip placeholdermessage explanation"
 msgid "Connect a drawing tablet"
 msgstr "그래픽 태블릿을 연결하십시오"
@@ -504,11 +493,10 @@ msgid "Pad"
 msgstr "패드"
 
 #: ui/MissingPadTab.qml:15
-#, fuzzy, kde-format
-#| msgid "No drawing tablets found"
+#, kde-format
 msgctxt "@info placeholdermessage main text"
 msgid "No pad inputs found"
-msgstr "그래픽 태블릿을 찾을 수 없음"
+msgstr "패드 입력을 찾을 수 없음"
 
 #: ui/MissingPadTab.qml:16
 #, kde-format
@@ -517,10 +505,11 @@ msgid ""
 "No buttons or other inputs were detected. This could mean the driver for "
 "this device is missing."
 msgstr ""
+"단추나 다른 입력을 감지할 수 없었습니다. 장치에 필요한 드라이버가 없을 수도 "
+"있습니다."
 
 #: ui/PadTab.qml:37
-#, fuzzy, kde-format
-#| msgid "Pad ring %1:"
+#, kde-format
 msgctxt "@label for graphics tablet ring config, % is number of ring"
 msgid "Pad ring %1:"
 msgstr "패드 링 %1:"
@@ -534,8 +523,7 @@ msgid "pad ring/dial %1"
 msgstr "패드 링/다이얼 %1"
 
 #: ui/PadTab.qml:100
-#, fuzzy, kde-format
-#| msgid "Pad dial %1:"
+#, kde-format
 msgctxt "@label for graphics tablet ring config, % is number of dial"
 msgid "Pad dial %1:"
 msgstr "패드 다이얼 %1:"
@@ -549,8 +537,7 @@ msgid "pad dial %1"
 msgstr "패드 다이얼 %1"
 
 #: ui/PadTab.qml:138
-#, fuzzy, kde-format
-#| msgid "Pad button %1:"
+#, kde-format
 msgctxt "@label for graphics tablet button config, % is number of button"
 msgid "Pad button %1:"
 msgstr "패드 단추 %1:"
@@ -563,22 +550,19 @@ msgctxt ""
 msgid "pad button %1"
 msgstr "패드 단추 %1"
 
-#: ui/StylusTab.qml:222
-#, fuzzy, kde-format
-#| msgid "Left-handed mode:"
+#: ui/StylusTab.qml:223
+#, kde-format
 msgctxt "@label prefix for checkbox"
 msgid "Left-handed mode:"
 msgstr "왼손잡이 모드"
 
-#: ui/StylusTab.qml:228
-#, fuzzy, kde-format
-#| msgctxt "Enable left-handed mode"
-#| msgid "Enable"
+#: ui/StylusTab.qml:229
+#, kde-format
 msgctxt "@option:check Enable left-handed mode"
 msgid "Enable"
 msgstr "활성화"
 
-#: ui/StylusTab.qml:234
+#: ui/StylusTab.qml:235
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -589,82 +573,73 @@ msgstr ""
 "장치에 왼손잡이 사용자 고려 모드를 활성화합니다. 장치에 따라서 동작 방식은 다"
 "르지만, 패드 단추 기능을 반전하여 태블릿을 거꾸로 놓고 쓸 수 있도록 합니다."
 
-#: ui/StylusTab.qml:246
+#: ui/StylusTab.qml:247
 #, kde-format
 msgctxt ""
 "'Mode' is the mode the stylus is in, pen (absolute) or mouse (relative)"
 msgid "Mode:"
 msgstr "모드:"
 
-#: ui/StylusTab.qml:254
-#, fuzzy, kde-format
-#| msgctxt "@title:tab"
-#| msgid "Pen"
+#: ui/StylusTab.qml:255
+#, kde-format
 msgctxt ""
 "@option:radio Pen mode, where the point on the screen is always where you "
 "touch the stylus"
 msgid "Pen"
 msgstr "펜"
 
-#: ui/StylusTab.qml:259
-#, fuzzy, kde-format
-#| msgid "The cursor follows where you touch the pen on the surface"
+#: ui/StylusTab.qml:260
+#, kde-format
 msgctxt "@info:whatsthis Accessible description"
 msgid "The cursor follows where you touch the pen on the surface"
 msgstr "펜이 표면에 닿는 위치로 커서를 이동"
 
-#: ui/StylusTab.qml:280
-#, fuzzy, kde-format
-#| msgctxt "Mouse mode, or like using the tablet like a giant touchpad"
-#| msgid "Mouse"
+#: ui/StylusTab.qml:281
+#, kde-format
 msgctxt ""
 "@option:radio Mouse mode, or like using the tablet like a giant touchpad"
 msgid "Mouse"
 msgstr "마우스"
 
-#: ui/StylusTab.qml:285
-#, fuzzy, kde-format
-#| msgid ""
-#| "Moving the pen on the surface moves the cursor relative to where it was, "
-#| "like a mouse"
+#: ui/StylusTab.qml:286
+#, kde-format
 msgctxt "@info:whatsthis Accessible description"
 msgid ""
 "Moving the pen on the surface moves the cursor relative to where it was, "
 "like a mouse"
 msgstr "펜을 표면에서 이동하면 마우스처럼 기존 위치에 상대적으로 커서 이동"
 
-#: ui/StylusTab.qml:355
-#, fuzzy, kde-format
-#| msgid "Pen Pressure:"
+#: ui/StylusTab.qml:356
+#, kde-format
 msgctxt "@label prefix for pen pressure curve config"
 msgid "Pen Pressure:"
 msgstr "펜 압력:"
 
-#: ui/StylusTab.qml:415
+#: ui/StylusTab.qml:416
 #, kde-format
 msgctxt "% of minimum pen pressure"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/StylusTab.qml:423
+#: ui/StylusTab.qml:424
 #, kde-format
 msgctxt "% of maximum pen pressure"
 msgid "%1%"
 msgstr "%1%"
 
-#: ui/StylusTab.qml:434
+#: ui/StylusTab.qml:435
 #, kde-format
 msgctxt "100% or maximum pen pressure"
 msgid "100%"
 msgstr "100%"
 
-#: ui/StylusTab.qml:442
+#: ui/StylusTab.qml:443
 #, kde-format
 msgctxt "0% or zero pen pressure"
 msgid "0%"
 msgstr "0%"
 
-#: ui/StylusTab.qml:446
+#: ui/StylusTab.qml:447
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -674,13 +649,13 @@ msgstr ""
 "이 커브를 사용하여 스타일러스의 입력 압력과 앱에서 받는 압력값의 대응을 조정"
 "합니다."
 
-#: ui/StylusTab.qml:451
+#: ui/StylusTab.qml:452
 #, kde-format
 msgctxt "Pen pressure range"
 msgid "Pressure Range:"
 msgstr "압력 범위:"
 
-#: ui/StylusTab.qml:478
+#: ui/StylusTab.qml:479
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -690,31 +665,31 @@ msgstr ""
 "한계 범위 이상이나 이하의 압력은 최댓값 및 최솟값으로 제한되며, 새로운 압력 "
 "범위가 됩니다."
 
-#: ui/StylusTab.qml:489
+#: ui/StylusTab.qml:490
 #, kde-format
 msgctxt "@action:button Calibration in progress"
 msgid "Calibration in Progress"
 msgstr "조정 진행 중"
 
-#: ui/StylusTab.qml:491
+#: ui/StylusTab.qml:492
 #, kde-format
 msgctxt "@action:button Calibrate the pen display"
 msgid "Calibrate"
 msgstr "조정"
 
-#: ui/StylusTab.qml:494
+#: ui/StylusTab.qml:495
 #, kde-format
 msgctxt "@action:button Pen display doesn't support calibration"
 msgid "Calibration Not Supported"
 msgstr "조정을 지원하지 않음"
 
-#: ui/StylusTab.qml:535
+#: ui/StylusTab.qml:536
 #, kde-format
 msgctxt "@action:button"
 msgid "Reset Custom Calibration"
 msgstr "미세 조정 초기화"
 
-#: ui/StylusTab.qml:550
+#: ui/StylusTab.qml:551
 #, kde-format
 msgctxt "@info"
 msgid ""

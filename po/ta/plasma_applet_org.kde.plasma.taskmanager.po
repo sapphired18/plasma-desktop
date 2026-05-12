@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_tasks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-08 00:45+0000\n"
-"PO-Revision-Date: 2026-01-04 17:03+0530\n"
+"POT-Creation-Date: 2026-03-17 02:41+0000\n"
+"PO-Revision-Date: 2026-01-31 18:05+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
 "Language: ta\n"
@@ -15,9 +15,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.12.0\n"
+"X-Generator: Lokalize 25.12.1\n"
 
-#: backend.cpp:284
+#: backend.cpp:288
 #, kde-format
 msgctxt "Show all user Places"
 msgid "%1 more Place…"
@@ -25,40 +25,40 @@ msgid_plural "%1 more Places…"
 msgstr[0] "இன்னும் %1 இடம்…"
 msgstr[1] "இன்னும் %1 இடங்கள்…"
 
-#: backend.cpp:368
+#: backend.cpp:372
 #, kde-format
 msgid "Recent Downloads"
 msgstr "சமீப பதிவிறக்கங்கள்"
 
-#: backend.cpp:370
+#: backend.cpp:374
 #, kde-format
 msgid "Recent Connections"
 msgstr "சமீப இணைப்புகள்"
 
-#: backend.cpp:372
+#: backend.cpp:376
 #, kde-format
 msgid "Recent Places"
 msgstr "சமீப இடங்கள்"
 
-#: backend.cpp:381
+#: backend.cpp:385
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Forget Recent Downloads"
 msgstr "சமீப பதிவிறக்கங்களை மறந்துவிடு"
 
-#: backend.cpp:383
+#: backend.cpp:387
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Forget Recent Connections"
 msgstr "சமீப இணைப்புகளை மறந்துவிடு"
 
-#: backend.cpp:385
+#: backend.cpp:389
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Forget Recent Places"
 msgstr "சமீப இடங்களை மறந்துவிடு"
 
-#: backend.cpp:387
+#: backend.cpp:391
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Forget Recent Files"
@@ -101,15 +101,13 @@ msgid "9,999+"
 msgstr "9,999+"
 
 #: qml/config.qml:13
-#, fuzzy, kde-format
-#| msgid "Appearance"
+#, kde-format
 msgctxt "@title:group for configuration dialog page"
 msgid "Appearance"
 msgstr "தோற்றம்"
 
 #: qml/config.qml:18
-#, fuzzy, kde-format
-#| msgid "Behavior"
+#, kde-format
 msgctxt "@title:group for configuration dialog page"
 msgid "Behavior"
 msgstr "நடத்தை"
@@ -595,22 +593,19 @@ msgid "On the top"
 msgstr "மேலே"
 
 #: qml/ContextMenu.qml:100
-#, fuzzy, kde-format
-#| msgid "Places"
+#, kde-format
 msgctxt "@title:group for section of menu items"
 msgid "Places"
 msgstr "இடங்கள்"
 
 #: qml/ContextMenu.qml:106
-#, fuzzy, kde-format
-#| msgid "Recent Files"
+#, kde-format
 msgctxt "@title:group for section of menu items"
 msgid "Recent Files"
 msgstr "சமீப கோப்புகள்"
 
 #: qml/ContextMenu.qml:116
-#, fuzzy, kde-format
-#| msgid "Actions"
+#, kde-format
 msgctxt "@title:group for section of menu items"
 msgid "Actions"
 msgstr "செயல்கள்"
@@ -658,165 +653,142 @@ msgid "Restore"
 msgstr "முன்னே கொண்டுவா"
 
 #: qml/ContextMenu.qml:266
-#, fuzzy, kde-format
-#| msgid "Mute"
+#, kde-format
 msgctxt "@option:check inmenu, no separate unmute action"
 msgid "Mute"
 msgstr "ஒலியை அடக்கு"
 
 #: qml/ContextMenu.qml:277
-#, fuzzy, kde-format
-#| msgid "Open New Window"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "Open New Window"
 msgstr "புதிய சாளரத்தை திற"
 
 #: qml/ContextMenu.qml:293
-#, fuzzy, kde-format
-#| msgid "Move to &Desktop"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "Move to &Desktop"
-msgstr "&பணிமேடைக்கு நகர்த்து"
+msgstr "பணிமேடைக்கு நகர்த்து"
 
 #: qml/ContextMenu.qml:323
-#, fuzzy, kde-format
-#| msgid "Move &To Current Desktop"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "Move &To Current Desktop"
-msgstr "&தற்போதைய பணிமேடைக்கு நகர்த்து"
+msgstr "தற்போதைய பணிமேடைக்கு நகர்த்து"
 
 #: qml/ContextMenu.qml:332
-#, fuzzy, kde-format
-#| msgid "&All Desktops"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "&All Desktops"
-msgstr "&அனைத்து பணிமேடைகள்"
+msgstr "அனைத்து பணிமேடைகள்"
 
 #: qml/ContextMenu.qml:360
-#, fuzzy, kde-format
-#| msgid "&New Desktop"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "&New Desktop"
-msgstr "புதி&ய பணிமேடை"
+msgstr "புதிய பணிமேடை"
 
 #: qml/ContextMenu.qml:380
-#, fuzzy, kde-format
-#| msgid "Show in &Activities"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "Show in &Activities"
-msgstr "இ&ச்செயல்பாடுகளில் காட்டு"
+msgstr "இச்செயல்பாடுகளில் காட்டு"
 
 #: qml/ContextMenu.qml:404
-#, fuzzy, kde-format
-#| msgid "Add To Current Activity"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "Add To Current Activity"
 msgstr "தற்போதைய செயல்பாட்டில் காட்டு"
 
 #: qml/ContextMenu.qml:414
-#, fuzzy, kde-format
-#| msgid "All Activities"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "All Activities"
 msgstr "அனைத்து செயல்பாடுகளிலும்"
 
 #: qml/ContextMenu.qml:470
-#, fuzzy, kde-format
-#| msgid "Move to %1"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "Move to %1"
 msgstr "%1-க்கு நகர்த்து"
 
 #: qml/ContextMenu.qml:496 qml/ContextMenu.qml:512
-#, fuzzy, kde-format
-#| msgid "&Pin to Task Manager"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "&Pin to Task Manager"
-msgstr "பணி மேலாளரில் தக்க&வை"
+msgstr "பணி மேலாளியில் தக்கவை"
 
 #: qml/ContextMenu.qml:564
-#, fuzzy, kde-format
-#| msgid "On All Activities"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "On All Activities"
 msgstr "அனைத்து செயல்பாடுகளிலும்"
 
 #: qml/ContextMenu.qml:570
-#, fuzzy, kde-format
-#| msgid "On The Current Activity"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "On The Current Activity"
 msgstr "தற்போதைய செயல்பாட்டில்"
 
 #: qml/ContextMenu.qml:594
-#, fuzzy, kde-format
-#| msgid "Unpin from Task Manager"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "Unpin from Task Manager"
-msgstr "பணி மேலாளரில் தக்கவைக்க வேண்டாம்"
+msgstr "பணி மேலாளியில் தக்கவைக்க வேண்டாம்"
 
 #: qml/ContextMenu.qml:609
-#, fuzzy, kde-format
-#| msgid "More"
+#, kde-format
 msgctxt "item:inmenu opens submenu"
 msgid "More"
 msgstr "மேலும்"
 
 #: qml/ContextMenu.qml:618
-#, fuzzy, kde-format
-#| msgid "&Move"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "&Move"
-msgstr "&நகர்த்து"
+msgstr "நகர்த்து"
 
 #: qml/ContextMenu.qml:627
-#, fuzzy, kde-format
-#| msgid "Re&size"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "Re&size"
-msgstr "&அளவுமாற்று"
+msgstr "அளவுமாற்று"
 
 #: qml/ContextMenu.qml:641
-#, fuzzy, kde-format
-#| msgid "Ma&ximize"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "Ma&ximize"
-msgstr "அ&திகபட்ச பெரிதாக்கு"
+msgstr "அதிகபட்ச பெரிதாக்கு"
 
 #: qml/ContextMenu.qml:655
-#, fuzzy, kde-format
-#| msgid "Mi&nimize"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "Mi&nimize"
-msgstr "&ஒதுக்கு"
+msgstr "ஒதுக்கு"
 
 #: qml/ContextMenu.qml:665
-#, fuzzy, kde-format
-#| msgid "Keep &Above Others"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "Keep &Above Others"
-msgstr "மற்றவற்றிற்கு &மேலே வை"
+msgstr "மற்றவற்றிற்கு மேலே வை"
 
 #: qml/ContextMenu.qml:675
-#, fuzzy, kde-format
-#| msgid "Keep &Below Others"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "Keep &Below Others"
-msgstr "மற்றவற்றிற்கு &கீழே வை"
+msgstr "மற்றவற்றிற்கு கீழே வை"
 
 #: qml/ContextMenu.qml:687
-#, fuzzy, kde-format
-#| msgid "&Fullscreen"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "&Fullscreen"
-msgstr "மு&ழுத்திரை"
+msgstr "முழுத்திரை"
 
 #: qml/ContextMenu.qml:700
-#, fuzzy, kde-format
-#| msgid "&Shade"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "&Shade"
-msgstr "&நிழலிடு"
+msgstr "நிழலிடு"
 
 #: qml/ContextMenu.qml:712
 #, kde-format
@@ -831,34 +803,30 @@ msgid "&Hide from Screencast"
 msgstr "திரைப்பகிர்விலிருந்து மறை"
 
 #: qml/ContextMenu.qml:741
-#, fuzzy, kde-format
-#| msgid "Allow this program to be grouped"
+#, kde-format
 msgctxt "@option:check inmenu"
 msgid "Allow this program to be grouped"
-msgstr "இச்செயலியை பணி மேலாளரில் தொகுக்க விடு"
+msgstr "இச்செயலியை குழுப்படுத்த விடு"
 
 #: qml/ContextMenu.qml:787
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu"
-#| msgid "&Close All"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Close All"
-msgstr "&அனைத்தையும் மூடு"
+msgstr "அனைத்தையும் மூடு"
 
 #: qml/ContextMenu.qml:787
-#, fuzzy, kde-format
-#| msgid "&Close"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Close"
-msgstr "&மூடு"
+msgstr "மூடு"
 
-#: qml/Task.qml:153
+#: qml/Task.qml:155
 #, kde-format
 msgctxt "@info:usagetip %1 application name"
 msgid "Launch %1"
 msgstr "%1 தனை இயக்கு"
 
-#: qml/Task.qml:158
+#: qml/Task.qml:160
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "There is %1 new message."
@@ -866,92 +834,91 @@ msgid_plural "There are %1 new messages."
 msgstr[0] "%1 புதிய செய்தி உள்ளது."
 msgstr[1] "%1 புதிய செய்திகள் உள்ளன."
 
-#: qml/Task.qml:166
+#: qml/Task.qml:168
 #, kde-format
 msgctxt "@info:usagetip %1 task name"
 msgid "Show Task tooltip for %1"
 msgstr "%1 என்பதற்கான கருவித் துப்பைக் காட்டும்"
 
-#: qml/Task.qml:170
+#: qml/Task.qml:172
 #, kde-format
 msgctxt "@info:usagetip %1 task name"
 msgid "Show windows side by side for %1"
 msgstr "%1 என்பதன் சாளரங்களை பக்கத்துப்பக்கத்தில் காட்டும்"
 
-#: qml/Task.qml:175
+#: qml/Task.qml:177
 #, kde-format
 msgctxt "@info:usagetip %1 task name"
 msgid "Open textual list of windows for %1"
 msgstr "%1 என்பதன் சாளரங்களின் உரைப்பட்டியலைத் திறக்கும்"
 
-#: qml/Task.qml:179
-#, fuzzy, kde-format
-#| msgid "Activate %1"
+#: qml/Task.qml:181
+#, kde-format
 msgctxt "@info:usagetip %1 task name"
 msgid "Activate %1"
 msgstr "%1-ஐ இயக்கு"
 
-#: qml/ToolTipInstance.qml:189
+#: qml/ToolTipInstance.qml:201
 #, kde-format
 msgctxt "@info:tooltip Close this window"
 msgid "Close window"
 msgstr "சாளரத்தை மூடும்"
 
-#: qml/ToolTipInstance.qml:459
+#: qml/ToolTipInstance.qml:471
 #, kde-format
 msgctxt "button to unmute app"
 msgid "Unmute %1"
 msgstr "%1-இன் ஒலியை அனுமதி"
 
-#: qml/ToolTipInstance.qml:460
+#: qml/ToolTipInstance.qml:472
 #, kde-format
 msgctxt "button to mute app"
 msgid "Mute %1"
 msgstr "%1-இன் ஒலியை அடக்கு"
 
-#: qml/ToolTipInstance.qml:478
+#: qml/ToolTipInstance.qml:490
 #, kde-format
 msgctxt "Accessibility data on volume slider"
 msgid "Adjust volume for %1"
 msgstr "%1-இன் ஒலியளவை மாற்று"
 
-#: qml/ToolTipInstance.qml:494
+#: qml/ToolTipInstance.qml:506
 #, kde-format
 msgctxt "volume percentage"
 msgid "%1%"
 msgstr "%1%"
 
-#: qml/ToolTipInstance.qml:498
+#: qml/ToolTipInstance.qml:510
 #, kde-format
 msgctxt "only used for sizing, should be widest possible string"
 msgid "100%"
 msgstr "100%"
 
-#: qml/ToolTipInstance.qml:514
+#: qml/ToolTipInstance.qml:526
 #, kde-format
 msgctxt "Comma-separated list of desktops"
 msgid "On %1"
 msgstr "%1 தனில்"
 
-#: qml/ToolTipInstance.qml:517
+#: qml/ToolTipInstance.qml:529
 #, kde-format
 msgctxt "Comma-separated list of desktops"
 msgid "Pinned to all desktops"
 msgstr "அனைத்து பணிமேடைகளிலும் தக்கவைத்த‍து"
 
-#: qml/ToolTipInstance.qml:523
+#: qml/ToolTipInstance.qml:535
 #, kde-format
 msgctxt "Which virtual desktop a window is currently on"
 msgid "Available on all activities"
 msgstr "அனைத்து செயல்பாடுகளிலும் உள்ளது"
 
-#: qml/ToolTipInstance.qml:533
+#: qml/ToolTipInstance.qml:545
 #, kde-format
 msgctxt "Activities a window is currently on (apart from the current one)"
 msgid "Also available on %1"
 msgstr "%1-இலும் உள்ளது"
 
-#: qml/ToolTipInstance.qml:537
+#: qml/ToolTipInstance.qml:549
 #, kde-format
 msgctxt "Which activities a window is currently on"
 msgid "Available on %1"

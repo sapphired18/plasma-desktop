@@ -217,12 +217,6 @@ FocusScope {
         id: eventGenerator
     }
 
-    onEnabledChanged: {
-        if (!main.enabled) {
-            listener.clearPressState();
-        }
-    }
-
     MouseEventListener {
         id: listener
 
@@ -563,8 +557,13 @@ FocusScope {
                 height: 0
                 z: 99999
 
+                SystemPalette {
+                    id: sysPalette
+                    colorGroup: SystemPalette.Active
+                }
+
                 radius: Kirigami.Units.cornerRadius
-                border.color: Kirigami.Theme.highlightColor
+                border.color: sysPalette.highlight
                 color: Qt.alpha(border.color, 0.3)
 
                 function intersects(rect) {
@@ -1359,6 +1358,11 @@ FocusScope {
             perStripe: Math.floor((gridView.flow === GridView.FlowLeftToRight)
                 ? (gridView.width / gridView.cellWidth)
                 : (gridView.height / gridView.cellHeight))
+
+            onModelReset: {
+                // When reset, listener.pressedItem will be invalidated.
+                listener.clearPressState();
+            }
         }
 
         Folder.ItemViewAdapter {

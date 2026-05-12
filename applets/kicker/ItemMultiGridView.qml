@@ -181,6 +181,7 @@ PlasmaComponents.ScrollView {
                         cellWidth: itemMultiGrid.cellSize
                         cellHeight: itemMultiGrid.cellSize
                         iconSize: itemMultiGrid.iconSize
+                        hoverEnabled: itemMultiGrid.hoverEnabled
 
                         verticalScrollBarPolicy: PlasmaComponents.ScrollBar.AlwaysOff
 
@@ -257,6 +258,10 @@ PlasmaComponents.ScrollView {
                                 itemMultiGrid.keyNavDown();
                             }
                             currentIndex = -1
+                        }
+                        Keys.onBacktabPressed: event => {
+                            currentIndex = -1
+                            event.accepted = false // pass to mainColumn handler
                         }
                     }
 

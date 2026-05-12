@@ -65,6 +65,8 @@ PlasmaExtras.PlasmoidHeading {
                 rightMargin: kickoff.backgroundMetrics.rightPadding
             }
 
+            Keys.forwardTo: searchField.activeFocus ? null : searchField
+
             RowLayout {
                 id: nameAndIcon
                 spacing: root.spacing
@@ -208,7 +210,17 @@ PlasmaExtras.PlasmoidHeading {
                         searchField.forceActiveFocus(Qt.ShortcutFocusReason)
                     }
                     Keys.priority: Keys.AfterItem
-                    Keys.forwardTo: kickoff.contentArea !== null ? kickoff.contentArea.view : []
+                    Keys.forwardTo: {
+                        if (kickoff.contentArea === null) {
+                            return []
+                        }
+                        if (kickoff.contentArea instanceof ListOfGridsView) {
+                            // forward to grid inside of list, or down will skip the whole grid'
+                            return [kickoff.contentArea.view.currentItem?.view, kickoff.contentArea.view]
+                        }
+                        return kickoff.contentArea.view
+                    }
+
                     Keys.onTabPressed: event => {
                         tabSetFocus(event, nextItemInFocusChain(false));
                     }
@@ -217,13 +229,13 @@ PlasmaExtras.PlasmoidHeading {
                     }
                     Keys.onLeftPressed: event => {
                         if (activeFocus) {
-                            nextItemInFocusChain(kickoff.sideBarOnRight).forceActiveFocus(
+                            (sideBarOnRight ? configureButton : avatar).forceActiveFocus(
                                 Application.layoutDirection === Qt.RightToLeft ? Qt.TabFocusReason : Qt.BacktabFocusReason)
                         }
                     }
                     Keys.onRightPressed: event => {
                         if (activeFocus) {
-                            nextItemInFocusChain(!kickoff.sideBarOnRight).forceActiveFocus(
+                            (sideBarOnRight ? avatar : configureButton).forceActiveFocus(
                                 Application.layoutDirection === Qt.RightToLeft ? Qt.BacktabFocusReason : Qt.TabFocusReason)
                         }
                     }
@@ -247,11 +259,11 @@ PlasmaExtras.PlasmoidHeading {
                         tabSetFocus(event, nextItemInFocusChain());
                     }
                     Keys.onLeftPressed: event => {
-                        nextItemInFocusChain(kickoff.sideBarOnRight).forceActiveFocus(
+                        (kickoff.sideBarOnRight ? pinButton : searchField).forceActiveFocus(
                             Application.layoutDirection == Qt.RightToLeft ? Qt.TabFocusReason : Qt.BacktabFocusReason)
                     }
                     Keys.onRightPressed: event => {
-                        nextItemInFocusChain(!kickoff.sideBarOnRight).forceActiveFocus(
+                        (kickoff.sideBarOnRight ? searchField : pinButton).forceActiveFocus(
                             Application.layoutDirection == Qt.RightToLeft ? Qt.BacktabFocusReason : Qt.TabFocusReason)
                     }
                     onClicked: plasmoid.internalAction("configure").trigger()

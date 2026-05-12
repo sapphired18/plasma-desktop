@@ -111,6 +111,31 @@ void GlobalAccelModel::load()
     });
 }
 
+ComponentType classify(const KService::Ptr service)
+{
+    if (!service || !service->isApplication()) {
+        return ComponentType::SystemService;
+    }
+
+    if (service->property<bool>(QStringLiteral("X-KDE-GlobalAccel-CommandShortcut"))) {
+        return ComponentType::Command;
+    }
+
+    if (service->entryPath().startsWith(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/applications/"))) {
+        // this service was explicitely added by the user. Whether it's actually an "application" is uncertain, but it's probably not an actual system
+        // service.
+        return ComponentType::Application;
+    }
+
+    if ((service->noDisplay() || service->property<QString>(QStringLiteral("X-KDE-GlobalShortcutType")) == QLatin1String("Service"))) {
+        // services with noDisplay are typically KCMs or implementation details
+        // don't show them as "Application"
+        return ComponentType::SystemService;
+    }
+
+    return ComponentType::Application;
+};
+
 Component GlobalAccelModel::loadComponent(const QList<KGlobalShortcutInfo> &info)
 {
     const QString &componentUnique = info[0].componentUniqueName();
@@ -140,23 +165,7 @@ Component GlobalAccelModel::loadComponent(const QList<KGlobalShortcutInfo> &info
         service = services.value(0, KService::Ptr());
     }
 
-    ComponentType type;
-
-    if (service && service->isApplication()) {
-        if (service->property<bool>(QStringLiteral("X-KDE-GlobalAccel-CommandShortcut"))) {
-            type = ComponentType::Command;
-        } else {
-            if (service->noDisplay() || service->property<QString>(QStringLiteral("X-KDE-GlobalShortcutType")) == QLatin1String("Service")) {
-                // services with noDisplay are typically KCMs or implementation details
-                // don't show them as "Application"
-                type = ComponentType::SystemService;
-            } else {
-                type = ComponentType::Application;
-            }
-        }
-    } else {
-        type = ComponentType::SystemService;
-    }
+    auto type = classify(service);
 
     QString icon;
 
@@ -222,35 +231,59 @@ void GlobalAccelModel::save()
         removeComponent(*component);
     }
 
-    for (auto it = m_components.rbegin(); it != m_components.rend(); ++it) {
-        for (auto &action : it->actions) {
+    // removing the keys first ensures there are no temporary conflicts
+    for (auto &component : m_components) {
+        for (auto &action : component.actions) {
             if (action.initialShortcuts != action.activeShortcuts) {
-                const QStringList actionId = buildActionId(it->id, it->displayName, action.id, action.displayName);
-                // TODO: pass action.activeShortcuts to m_globalAccelInterface->setForeignShortcut() as a QSet<QKeySequence>
-                // or QList<QKeySequence>?
-                QList<QKeySequence> keys;
-                keys.reserve(action.activeShortcuts.size());
-                for (const QKeySequence &key : std::as_const(action.activeShortcuts)) {
-                    keys.append(key);
-                }
-                qCDebug(KCMKEYS) << "Saving" << actionId << action.activeShortcuts << keys;
-                auto reply = m_globalAccelInterface->setForeignShortcutKeys(actionId, keys);
-                reply.waitForFinished();
-                if (!reply.isValid()) {
-                    qCCritical(KCMKEYS) << "Error while saving";
-                    if (reply.error().isValid()) {
-                        qCCritical(KCMKEYS) << reply.error().name() << reply.error().message();
+                QSet<QKeySequence> removed = action.initialShortcuts - action.activeShortcuts;
+                if (!removed.isEmpty()) {
+                    QSet<QKeySequence> unchangedShortcuts = action.activeShortcuts & action.initialShortcuts;
+                    bool shortcutsApplied = saveAction(component, action, unchangedShortcuts);
+                    if (shortcutsApplied) {
+                        action.initialShortcuts = unchangedShortcuts;
                     }
-                    Q_EMIT errorOccured(i18nc("%1 is the name of the component, %2 is the action for which saving failed",
-                                              "Error while saving shortcut %1: %2",
-                                              it->displayName,
-                                              it->displayName));
-                } else {
+                }
+            }
+        }
+    }
+
+    for (auto &component : m_components) {
+        for (auto &action : component.actions) {
+            if (action.initialShortcuts != action.activeShortcuts) {
+                bool shortcutsApplied = saveAction(component, action, action.activeShortcuts);
+                if (shortcutsApplied) {
                     action.initialShortcuts = action.activeShortcuts;
                 }
             }
         }
     }
+}
+
+bool GlobalAccelModel::saveAction(const Component &component, const Action &action, const QSet<QKeySequence> &shortcutsToSave)
+{
+    const QStringList actionId = buildActionId(component.id, component.displayName, action.id, action.displayName);
+    // TODO: pass action.activeShortcuts to m_globalAccelInterface->setForeignShortcut() as a QSet<QKeySequence>
+    // or QList<QKeySequence>?
+    QList<QKeySequence> keys;
+    keys.reserve(shortcutsToSave.size());
+    for (const QKeySequence &key : shortcutsToSave) {
+        keys.append(key);
+    }
+    qCDebug(KCMKEYS) << "Saving" << actionId << "target" << action.activeShortcuts << "applying" << keys;
+    auto reply = m_globalAccelInterface->setForeignShortcutKeys(actionId, keys);
+    reply.waitForFinished();
+    if (!reply.isValid()) {
+        qCCritical(KCMKEYS) << "Error while saving";
+        if (reply.error().isValid()) {
+            qCCritical(KCMKEYS) << reply.error().name() << reply.error().message();
+        }
+        Q_EMIT errorOccured(i18nc("%1 is the name of the component, %2 is the action for which saving failed",
+                                  "Error while saving shortcut %1: %2",
+                                  component.displayName,
+                                  action.displayName));
+        return false;
+    }
+    return true;
 }
 
 bool GlobalAccelModel::isValid() const
@@ -369,6 +402,29 @@ void GlobalAccelModel::addApplication(const QString &desktopFileName, const QStr
             Q_EMIT applicationAdded(c);
         });
     });
+}
+
+void GlobalAccelModel::onShortcutChanged(const QString &uniqueName)
+{
+    auto component = std::find_if(m_components.cbegin(), m_components.cend(), [&uniqueName](const Component &c) { return c.id == uniqueName; });
+    if (component == m_components.cend()) {
+        return;
+    }
+
+    const auto &actions = component->actions;
+    auto action = std::find_if(actions.begin(), actions.end(), [](const Action &a) { return a.id == QStringLiteral("_launch"); });
+    if (action == actions.end()) {
+        return;
+    }
+
+    const int componentRow = std::distance(m_components.cbegin(), component);
+    const int actionRow = std::distance(actions.begin(), action);
+
+    const QModelIndex componentIndex = index(componentRow, 0);
+    const QModelIndex actionIndex = index(actionRow, 0, componentIndex);
+
+    Q_EMIT dataChanged(actionIndex, actionIndex, {Qt::DisplayRole});
+    Q_EMIT dataChanged(actionIndex.parent(), actionIndex.parent(), {Qt::DisplayRole});
 }
 
 void GlobalAccelModel::removeComponent(const Component &component)

@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2010, 2011, 2013, 2020, 2021, 2022, 2023, 2024, 2025 g.sora <g.sora@tiscali.it>
+# SPDX-FileCopyrightText: 2010, 2011, 2013, 2020, 2021, 2022, 2023, 2024, 2025, 2026 g.sora <g.sora@tiscali.it>
 # giovanni <g.sora@tiscali.it>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-08 00:45+0000\n"
-"PO-Revision-Date: 2025-05-27 15:33+0200\n"
+"POT-Creation-Date: 2026-03-17 02:41+0000\n"
+"PO-Revision-Date: 2026-02-05 16:23+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Generator: Lokalize 23.08.5\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: backend.cpp:284
+#: backend.cpp:288
 #, kde-format
 msgctxt "Show all user Places"
 msgid "%1 more Place…"
@@ -26,40 +26,40 @@ msgid_plural "%1 more Places…"
 msgstr[0] "%1 ulterior placia…"
 msgstr[1] "%1 ulterior placias…"
 
-#: backend.cpp:368
+#: backend.cpp:372
 #, kde-format
 msgid "Recent Downloads"
 msgstr "Discargamentos recente"
 
-#: backend.cpp:370
+#: backend.cpp:374
 #, kde-format
 msgid "Recent Connections"
 msgstr "Conexiones recente"
 
-#: backend.cpp:372
+#: backend.cpp:376
 #, kde-format
 msgid "Recent Places"
 msgstr "Placias recente"
 
-#: backend.cpp:381
+#: backend.cpp:385
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Forget Recent Downloads"
 msgstr "Oblida discargamentos  recente"
 
-#: backend.cpp:383
+#: backend.cpp:387
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Forget Recent Connections"
 msgstr "Oblida connexiones recente"
 
-#: backend.cpp:385
+#: backend.cpp:389
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Forget Recent Places"
 msgstr "Oblida placias recente"
 
-#: backend.cpp:387
+#: backend.cpp:391
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Forget Recent Files"
@@ -102,15 +102,13 @@ msgid "9,999+"
 msgstr "9,999+"
 
 #: qml/config.qml:13
-#, fuzzy, kde-format
-#| msgid "Appearance"
+#, kde-format
 msgctxt "@title:group for configuration dialog page"
 msgid "Appearance"
 msgstr "Apparentia"
 
 #: qml/config.qml:18
-#, fuzzy, kde-format
-#| msgid "Behavior"
+#, kde-format
 msgctxt "@title:group for configuration dialog page"
 msgid "Behavior"
 msgstr "Comportamento"
@@ -134,12 +132,10 @@ msgid "Hide other windows when hovering over previews"
 msgstr "Cela altere fenestras quando plana sur vistas preliminar"
 
 #: qml/ConfigAppearance.qml:55
-#, fuzzy, kde-format
-#| msgctxt "@option:check section General"
-#| msgid "Hide other windows when hovering over previews"
+#, kde-format
 msgctxt "@option:check section General"
 msgid "Hide other windows when hovering over tooltips"
-msgstr "Cela altere fenestras quando plana sur vistas preliminar"
+msgstr "Cela altere fenestras quando plana sur consilios"
 
 #: qml/ConfigAppearance.qml:60
 #, kde-format
@@ -480,32 +476,22 @@ msgid "Brings it to the current virtual desktop"
 msgstr "Porta al scriptorio currente virtual"
 
 #: qml/ConfigBehavior.qml:207
-#, fuzzy, kde-format
-#| msgctxt "@label:listbox completes sentence like: … does nothing"
-#| msgid "Scrolling behavior:"
+#, kde-format
 msgctxt ""
 "@label:listbox Part of a sentence: 'Scrolling behavior does nothing/cycles "
 "through tasks/cycles through the selected task's windows/adjusts the hovered "
 "task’s volume''"
 msgid "Scrolling behavior:"
-msgstr "Ambiente de Rolar:"
+msgstr "Comportamento de Rolar:"
 
 #: qml/ConfigBehavior.qml:211
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@item:inlistbox Part of a sentence: 'Middle-clicking any task does "
-#| "nothing'"
-#| msgid "Does nothing"
+#, kde-format
 msgctxt "@item:inlistbox Part of a sentence: 'Scrolling behavior does nothing'"
 msgid "Does nothing"
 msgstr "Il face nihil"
 
 #: qml/ConfigBehavior.qml:212
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@item:inlistbox Part of a sentence: 'Scrolling anywhere switches through "
-#| "all tasks'"
-#| msgid "Cycles through all tasks"
+#, kde-format
 msgctxt ""
 "@item:inlistbox Part of a sentence: 'Scrolling behavior cycles through all "
 "tasks'"
@@ -513,28 +499,20 @@ msgid "Cycles through all tasks"
 msgstr "Cycla per omne cargas"
 
 #: qml/ConfigBehavior.qml:213
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@item:inlistbox Part of a sentence: 'Scrolling on a task switches between "
-#| "that task's windows'"
-#| msgid "Cycles through the selected task windows"
+#, kde-format
 msgctxt ""
 "@item:inlistbox Part of a sentence: 'Scrolling behavior cycles through the "
 "hovered task's windows'"
 msgid "Cycles through the hovered task’s windows"
-msgstr "Cycla per le fenestras de carga selectionate"
+msgstr "Cycla per le fenestras de carga planate"
 
 #: qml/ConfigBehavior.qml:214
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@item:inlistbox Part of a sentence: 'Scrolling on a task switches between "
-#| "that task's windows'"
-#| msgid "Cycles through the selected task windows"
+#, kde-format
 msgctxt ""
 "@item:inlistbox Part of a sentence: 'Scrolling behavior adjusts the hovered "
 "task’s volume'"
 msgid "Adjusts the hovered task’s volume"
-msgstr "Cycla per le fenestras de carga selectionate"
+msgstr "Adapta volumine de carga planate"
 
 #: qml/ConfigBehavior.qml:222
 #, kde-format
@@ -617,22 +595,19 @@ msgid "On the top"
 msgstr "In summitate"
 
 #: qml/ContextMenu.qml:100
-#, fuzzy, kde-format
-#| msgid "Places"
+#, kde-format
 msgctxt "@title:group for section of menu items"
 msgid "Places"
 msgstr "Placias"
 
 #: qml/ContextMenu.qml:106
-#, fuzzy, kde-format
-#| msgid "Recent Files"
+#, kde-format
 msgctxt "@title:group for section of menu items"
 msgid "Recent Files"
 msgstr "Files recente"
 
 #: qml/ContextMenu.qml:116
-#, fuzzy, kde-format
-#| msgid "Actions"
+#, kde-format
 msgctxt "@title:group for section of menu items"
 msgid "Actions"
 msgstr "Actiones"
@@ -680,162 +655,139 @@ msgid "Restore"
 msgstr "Restabili"
 
 #: qml/ContextMenu.qml:266
-#, fuzzy, kde-format
-#| msgid "Mute"
+#, kde-format
 msgctxt "@option:check inmenu, no separate unmute action"
 msgid "Mute"
-msgstr "Mute (Surdina)"
+msgstr "Silente"
 
 #: qml/ContextMenu.qml:277
-#, fuzzy, kde-format
-#| msgid "Open New Window"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "Open New Window"
 msgstr "Aperi nove fenestra"
 
 #: qml/ContextMenu.qml:293
-#, fuzzy, kde-format
-#| msgid "Move to &Desktop"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "Move to &Desktop"
 msgstr "Move a &scriptorio"
 
 #: qml/ContextMenu.qml:323
-#, fuzzy, kde-format
-#| msgid "Move &To Current Desktop"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "Move &To Current Desktop"
 msgstr "Move &a le scriptorio currente"
 
 #: qml/ContextMenu.qml:332
-#, fuzzy, kde-format
-#| msgid "&All Desktops"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "&All Desktops"
 msgstr "&Omne Scriptorios"
 
 #: qml/ContextMenu.qml:360
-#, fuzzy, kde-format
-#| msgid "&New Desktop"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "&New Desktop"
 msgstr "&Nove scriptorio"
 
 #: qml/ContextMenu.qml:380
-#, fuzzy, kde-format
-#| msgid "Show in &Activities"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "Show in &Activities"
 msgstr "Monstra in &Activitates"
 
 #: qml/ContextMenu.qml:404
-#, fuzzy, kde-format
-#| msgid "Add To Current Activity"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "Add To Current Activity"
 msgstr "Adde a activitate currente"
 
 #: qml/ContextMenu.qml:414
-#, fuzzy, kde-format
-#| msgid "All Activities"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "All Activities"
 msgstr "Omne Activitates"
 
 #: qml/ContextMenu.qml:470
-#, fuzzy, kde-format
-#| msgid "Move to %1"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "Move to %1"
 msgstr "Move a %1"
 
 #: qml/ContextMenu.qml:496 qml/ContextMenu.qml:512
-#, fuzzy, kde-format
-#| msgid "&Pin to Task Manager"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "&Pin to Task Manager"
 msgstr "Attac&ha a Gerente de carga"
 
 #: qml/ContextMenu.qml:564
-#, fuzzy, kde-format
-#| msgid "On All Activities"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "On All Activities"
 msgstr "Sur omne  Activitates"
 
 #: qml/ContextMenu.qml:570
-#, fuzzy, kde-format
-#| msgid "On The Current Activity"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "On The Current Activity"
 msgstr "Sur le activitate currente"
 
 #: qml/ContextMenu.qml:594
-#, fuzzy, kde-format
-#| msgid "Unpin from Task Manager"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "Unpin from Task Manager"
 msgstr "Deattacha ex Gerente de carga"
 
 #: qml/ContextMenu.qml:609
-#, fuzzy, kde-format
-#| msgid "More"
+#, kde-format
 msgctxt "item:inmenu opens submenu"
 msgid "More"
 msgstr "Plus"
 
 #: qml/ContextMenu.qml:618
-#, fuzzy, kde-format
-#| msgid "&Move"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "&Move"
 msgstr "&Move"
 
 #: qml/ContextMenu.qml:627
-#, fuzzy, kde-format
-#| msgid "Re&size"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "Re&size"
 msgstr "Redimen&siona"
 
 #: qml/ContextMenu.qml:641
-#, fuzzy, kde-format
-#| msgid "Ma&ximize"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "Ma&ximize"
 msgstr "Ma&ximiza"
 
 #: qml/ContextMenu.qml:655
-#, fuzzy, kde-format
-#| msgid "Mi&nimize"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "Mi&nimize"
 msgstr "Mi&nimisa"
 
 #: qml/ContextMenu.qml:665
-#, fuzzy, kde-format
-#| msgid "Keep &Above Others"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "Keep &Above Others"
 msgstr "Mantene  Super &Alteres"
 
 #: qml/ContextMenu.qml:675
-#, fuzzy, kde-format
-#| msgid "Keep &Below Others"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "Keep &Below Others"
 msgstr "Mantene  Su&b Alteres"
 
 #: qml/ContextMenu.qml:687
-#, fuzzy, kde-format
-#| msgid "&Fullscreen"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "&Fullscreen"
 msgstr "Sc&hermo plen"
 
 #: qml/ContextMenu.qml:700
-#, fuzzy, kde-format
-#| msgid "&Shade"
+#, kde-format
 msgctxt "action:inmenu"
 msgid "&Shade"
 msgstr "&Adumbra"
@@ -850,37 +802,33 @@ msgstr "&Nulle barra de titulo e quadro"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide from Screencast"
-msgstr ""
+msgstr "&Cela ab Screencast"
 
 #: qml/ContextMenu.qml:741
-#, fuzzy, kde-format
-#| msgid "Allow this program to be grouped"
+#, kde-format
 msgctxt "@option:check inmenu"
 msgid "Allow this program to be grouped"
 msgstr "Il permitte iste programma de esser gruppate"
 
 #: qml/ContextMenu.qml:787
-#, fuzzy, kde-format
-#| msgctxt "@item:inmenu"
-#| msgid "&Close All"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Close All"
 msgstr "&Claude omne"
 
 #: qml/ContextMenu.qml:787
-#, fuzzy, kde-format
-#| msgid "&Close"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Close"
 msgstr "&Claude"
 
-#: qml/Task.qml:153
+#: qml/Task.qml:155
 #, kde-format
 msgctxt "@info:usagetip %1 application name"
 msgid "Launch %1"
 msgstr "Lancea %1"
 
-#: qml/Task.qml:158
+#: qml/Task.qml:160
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "There is %1 new message."
@@ -888,96 +836,91 @@ msgid_plural "There are %1 new messages."
 msgstr[0] "Il ha %1 nove message"
 msgstr[1] "Il ha %1 nove messages"
 
-#: qml/Task.qml:166
+#: qml/Task.qml:168
 #, kde-format
 msgctxt "@info:usagetip %1 task name"
 msgid "Show Task tooltip for %1"
 msgstr "Monstra consilio de carga per %1"
 
-#: qml/Task.qml:170
+#: qml/Task.qml:172
 #, kde-format
 msgctxt "@info:usagetip %1 task name"
 msgid "Show windows side by side for %1"
 msgstr "Monstra fenestra latere per latere per %1"
 
-#: qml/Task.qml:175
+#: qml/Task.qml:177
 #, kde-format
 msgctxt "@info:usagetip %1 task name"
 msgid "Open textual list of windows for %1"
 msgstr "Aperi lista textual de fenestras per %1"
 
-#: qml/Task.qml:179
-#, fuzzy, kde-format
-#| msgid "Activate %1"
+#: qml/Task.qml:181
+#, kde-format
 msgctxt "@info:usagetip %1 task name"
 msgid "Activate %1"
 msgstr "Activa %1"
 
-#: qml/ToolTipInstance.qml:189
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@item:inlistbox Part of a sentence: 'Middle-clicking any task closes "
-#| "window or group'"
-#| msgid "Closes window or group"
+#: qml/ToolTipInstance.qml:201
+#, kde-format
 msgctxt "@info:tooltip Close this window"
 msgid "Close window"
-msgstr "Claude fenestra o gruppo"
+msgstr "Claude fenestra"
 
-#: qml/ToolTipInstance.qml:459
+#: qml/ToolTipInstance.qml:471
 #, kde-format
 msgctxt "button to unmute app"
 msgid "Unmute %1"
 msgstr "Non silente %1"
 
-#: qml/ToolTipInstance.qml:460
+#: qml/ToolTipInstance.qml:472
 #, kde-format
 msgctxt "button to mute app"
 msgid "Mute %1"
 msgstr "Mute %1"
 
-#: qml/ToolTipInstance.qml:478
+#: qml/ToolTipInstance.qml:490
 #, kde-format
 msgctxt "Accessibility data on volume slider"
 msgid "Adjust volume for %1"
 msgstr "Adjusta volumine per %1"
 
-#: qml/ToolTipInstance.qml:494
+#: qml/ToolTipInstance.qml:506
 #, kde-format
 msgctxt "volume percentage"
 msgid "%1%"
 msgstr "%1%"
 
-#: qml/ToolTipInstance.qml:498
+#: qml/ToolTipInstance.qml:510
 #, kde-format
 msgctxt "only used for sizing, should be widest possible string"
 msgid "100%"
 msgstr "100%"
 
-#: qml/ToolTipInstance.qml:514
+#: qml/ToolTipInstance.qml:526
 #, kde-format
 msgctxt "Comma-separated list of desktops"
 msgid "On %1"
 msgstr "Sur %1"
 
-#: qml/ToolTipInstance.qml:517
+#: qml/ToolTipInstance.qml:529
 #, kde-format
 msgctxt "Comma-separated list of desktops"
 msgid "Pinned to all desktops"
 msgstr "Attachate a omne scriptorios"
 
-#: qml/ToolTipInstance.qml:523
+#: qml/ToolTipInstance.qml:535
 #, kde-format
 msgctxt "Which virtual desktop a window is currently on"
 msgid "Available on all activities"
 msgstr "Disponibile sur omne activitates"
 
-#: qml/ToolTipInstance.qml:533
+#: qml/ToolTipInstance.qml:545
 #, kde-format
 msgctxt "Activities a window is currently on (apart from the current one)"
 msgid "Also available on %1"
 msgstr "Anque disponibile sur %1"
 
-#: qml/ToolTipInstance.qml:537
+#: qml/ToolTipInstance.qml:549
 #, kde-format
 msgctxt "Which activities a window is currently on"
 msgid "Available on %1"

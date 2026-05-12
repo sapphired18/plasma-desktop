@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_tasks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-08 00:45+0000\n"
+"POT-Creation-Date: 2026-03-17 02:41+0000\n"
 "PO-Revision-Date: 2026-01-08 23:56+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -24,47 +24,47 @@ msgstr ""
 "X-Generator: Lokalize 26.03.70\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: backend.cpp:284
+#: backend.cpp:288
 #, kde-format
 msgctxt "Show all user Places"
 msgid "%1 more Place…"
 msgid_plural "%1 more Places…"
 msgstr[0] "還有 %1 個位置…"
 
-#: backend.cpp:368
+#: backend.cpp:372
 #, kde-format
 msgid "Recent Downloads"
 msgstr "最近的下載"
 
-#: backend.cpp:370
+#: backend.cpp:374
 #, kde-format
 msgid "Recent Connections"
 msgstr "最近的連線"
 
-#: backend.cpp:372
+#: backend.cpp:376
 #, kde-format
 msgid "Recent Places"
 msgstr "最近的位置"
 
-#: backend.cpp:381
+#: backend.cpp:385
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Forget Recent Downloads"
 msgstr "忘掉最近的下載"
 
-#: backend.cpp:383
+#: backend.cpp:387
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Forget Recent Connections"
 msgstr "忘掉最近的連線"
 
-#: backend.cpp:385
+#: backend.cpp:389
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Forget Recent Places"
 msgstr "忘掉最近的位置"
 
-#: backend.cpp:387
+#: backend.cpp:391
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Forget Recent Files"
@@ -824,104 +824,104 @@ msgctxt "@action:inmenu"
 msgid "&Close"
 msgstr "關閉(&C)"
 
-#: qml/Task.qml:153
+#: qml/Task.qml:155
 #, kde-format
 msgctxt "@info:usagetip %1 application name"
 msgid "Launch %1"
 msgstr "啟動 %1"
 
-#: qml/Task.qml:158
+#: qml/Task.qml:160
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "There is %1 new message."
 msgid_plural "There are %1 new messages."
 msgstr[0] "有 %1 個新訊息。"
 
-#: qml/Task.qml:166
+#: qml/Task.qml:168
 #, kde-format
 msgctxt "@info:usagetip %1 task name"
 msgid "Show Task tooltip for %1"
 msgstr "為 %1 顯示工具提示"
 
-#: qml/Task.qml:170
+#: qml/Task.qml:172
 #, kde-format
 msgctxt "@info:usagetip %1 task name"
 msgid "Show windows side by side for %1"
 msgstr "為 %1 並排顯示視窗"
 
-#: qml/Task.qml:175
+#: qml/Task.qml:177
 #, kde-format
 msgctxt "@info:usagetip %1 task name"
 msgid "Open textual list of windows for %1"
 msgstr "為 %1 開啟文字型視窗列表"
 
-#: qml/Task.qml:179
+#: qml/Task.qml:181
 #, kde-format
 msgctxt "@info:usagetip %1 task name"
 msgid "Activate %1"
 msgstr "將 %1 設為作用中"
 
-#: qml/ToolTipInstance.qml:189
+#: qml/ToolTipInstance.qml:201
 #, kde-format
 msgctxt "@info:tooltip Close this window"
 msgid "Close window"
 msgstr "關閉視窗"
 
-#: qml/ToolTipInstance.qml:459
+#: qml/ToolTipInstance.qml:471
 #, kde-format
 msgctxt "button to unmute app"
 msgid "Unmute %1"
 msgstr "取消靜音 %1"
 
-#: qml/ToolTipInstance.qml:460
+#: qml/ToolTipInstance.qml:472
 #, kde-format
 msgctxt "button to mute app"
 msgid "Mute %1"
 msgstr "靜音 %1"
 
-#: qml/ToolTipInstance.qml:478
+#: qml/ToolTipInstance.qml:490
 #, kde-format
 msgctxt "Accessibility data on volume slider"
 msgid "Adjust volume for %1"
 msgstr "調整 %1 的音量"
 
-#: qml/ToolTipInstance.qml:494
+#: qml/ToolTipInstance.qml:506
 #, kde-format
 msgctxt "volume percentage"
 msgid "%1%"
 msgstr "%1%"
 
-#: qml/ToolTipInstance.qml:498
+#: qml/ToolTipInstance.qml:510
 #, kde-format
 msgctxt "only used for sizing, should be widest possible string"
 msgid "100%"
 msgstr "100%"
 
-#: qml/ToolTipInstance.qml:514
+#: qml/ToolTipInstance.qml:526
 #, kde-format
 msgctxt "Comma-separated list of desktops"
 msgid "On %1"
 msgstr "於 %1"
 
-#: qml/ToolTipInstance.qml:517
+#: qml/ToolTipInstance.qml:529
 #, kde-format
 msgctxt "Comma-separated list of desktops"
 msgid "Pinned to all desktops"
 msgstr "釘選到所有桌面"
 
-#: qml/ToolTipInstance.qml:523
+#: qml/ToolTipInstance.qml:535
 #, kde-format
 msgctxt "Which virtual desktop a window is currently on"
 msgid "Available on all activities"
 msgstr "所有活動都可使用"
 
-#: qml/ToolTipInstance.qml:533
+#: qml/ToolTipInstance.qml:545
 #, kde-format
 msgctxt "Activities a window is currently on (apart from the current one)"
 msgid "Also available on %1"
 msgstr "也可在 %1 上使用"
 
-#: qml/ToolTipInstance.qml:537
+#: qml/ToolTipInstance.qml:549
 #, kde-format
 msgctxt "Which activities a window is currently on"
 msgid "Available on %1"

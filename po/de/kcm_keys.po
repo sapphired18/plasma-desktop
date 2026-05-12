@@ -1,18 +1,18 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the plasma-desktop package.
-# SPDX-FileCopyrightText: 2020, 2021 Burkhard Lück <lueck@hube-lueck.de>
 # SPDX-FileCopyrightText: 2020, 2022 Frederik Schwarzer <schwarzer@kde.org>
+# SPDX-FileCopyrightText: 2020-2021 Burkhard Lück <lueck@hube-lueck.de>
 # SPDX-FileCopyrightText: 2023 Jannick Kuhr <opensource@kuhr.org>
 # SPDX-FileCopyrightText: 2023 Johannes Obermayr <johannesobermayr@gmx.de>
-# SPDX-FileCopyrightText: 2024, 2025 Alois Spitzbart <spitz234@hotmail.com>
+# SPDX-FileCopyrightText: 2024-2025 Alois Spitzbart <spitz234@hotmail.com>
 # SPDX-FileCopyrightText: 2025 Flori G <Renner03@protonmail.com>
-# SPDX-FileCopyrightText: 2025 Philipp Kiemle <l10n.daphipz@fastmail.de>
+# SPDX-FileCopyrightText: 2025-2026 Philipp Kiemle <l10n.daphipz@fastmail.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcm_keys\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-08 00:45+0000\n"
-"PO-Revision-Date: 2025-11-28 23:07+0100\n"
+"POT-Creation-Date: 2026-03-21 02:43+0000\n"
+"PO-Revision-Date: 2026-01-09 22:49+0100\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -50,20 +50,20 @@ msgctxt "@item:intable"
 msgid "Plasma Workspace"
 msgstr "Plasma-Arbeitsbereich"
 
-#: globalaccelmodel.cpp:245
+#: globalaccelmodel.cpp:281
 #, kde-format
 msgctxt ""
 "%1 is the name of the component, %2 is the action for which saving failed"
 msgid "Error while saving shortcut %1: %2"
 msgstr "Fehler beim Speichern des Kurzbefehls %1: %2"
 
-#: globalaccelmodel.cpp:362
+#: globalaccelmodel.cpp:395
 #, kde-format
 msgctxt "%1 is the name of an application"
 msgid "Error while adding %1, it seems it has no actions."
 msgstr "Fehler beim Hinzufügen von %1, es gibt anscheinen keine Aktionen."
 
-#: globalaccelmodel.cpp:413
+#: globalaccelmodel.cpp:469
 #, kde-format
 msgid "Error while communicating with the global shortcuts service"
 msgstr "Fehler bei der Kommunikation mit dem Dienst für globale Kurzbefehle"
@@ -74,7 +74,7 @@ msgid "Failed to communicate with global shortcuts daemon"
 msgstr ""
 "Die Kommunikation mit dem Dienst für globale Kurzbefehle ist fehlgeschlagen"
 
-#: kcm_keys.cpp:372
+#: kcm_keys.cpp:373
 #, kde-kuit-format
 msgctxt ""
 "@info %2 is the name of a category inside the 'Common Actions' section"
@@ -86,7 +86,7 @@ msgstr ""
 "interface> in Kategorie %2 zugewiesen.\n"
 "Möchten Sie ihn neu zu %4 zuweisen?"
 
-#: kcm_keys.cpp:378
+#: kcm_keys.cpp:379
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -99,13 +99,13 @@ msgstr ""
 "ihn der Aktion <interface>%4</interface> in <application>%5</application> "
 "neu zuweisen?"
 
-#: kcm_keys.cpp:387
+#: kcm_keys.cpp:388
 #, kde-format
 msgctxt "@title:window"
 msgid "Resolve Shortcut Conflict"
 msgstr "Kurzbefehlkonflikt auflösen"
 
-#: kcm_keys.cpp:397
+#: kcm_keys.cpp:398
 #, kde-format
 msgctxt "@action:button"
 msgid "Reassign"
@@ -142,29 +142,25 @@ msgid "Help"
 msgstr "Hilfe"
 
 #: ui/main.qml:27
-#, fuzzy, kde-format
-#| msgid "Applications"
+#, kde-format
 msgctxt "@title:group list section name"
 msgid "Applications"
 msgstr "Anwendungen"
 
 #: ui/main.qml:27
-#, fuzzy, kde-format
-#| msgid "Commands"
+#, kde-format
 msgctxt "@title:group list section name"
 msgid "Commands"
 msgstr "Befehle"
 
 #: ui/main.qml:27
-#, fuzzy, kde-format
-#| msgid "System Services"
+#, kde-format
 msgctxt "@title:group list section name"
 msgid "System Services"
 msgstr "Systemdienste"
 
 #: ui/main.qml:27
-#, fuzzy, kde-format
-#| msgid "Common Actions"
+#, kde-format
 msgctxt "@title:group list section name"
 msgid "Common Actions"
 msgstr "Allgemeine Aktionen"
@@ -193,7 +189,7 @@ msgctxt "@action:button Export shortcut scheme"
 msgid "Export…"
 msgstr "Exportieren …"
 
-#: ui/main.qml:53 ui/main.qml:125
+#: ui/main.qml:53 ui/main.qml:128
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Export shortcut scheme"
@@ -229,201 +225,189 @@ msgctxt "@action:menu accessible"
 msgid "Add new command or script"
 msgstr "Neuen Befehl oder Skript hinzufügen"
 
-#: ui/main.qml:104
-#, fuzzy, kde-format
-#| msgid "Cannot export scheme while there are unsaved changes"
+#: ui/main.qml:107
+#, kde-format
 msgctxt "@info:status inlinemessage"
 msgid "Cannot export scheme while there are unsaved changes"
 msgstr ""
 "Das Schema kann nicht exportiert werden, es gibt noch ungespeicherte "
 "Änderungen"
 
-#: ui/main.qml:117
-#, fuzzy, kde-format
-#| msgid ""
-#| "Select the components below that should be included in the exported scheme"
+#: ui/main.qml:120
+#, kde-format
 msgctxt "@info:usagetip"
 msgid ""
 "Select the components below that should be included in the exported scheme"
 msgstr ""
 "Wählen Sie unten die Komponenten, die im exportierten Schema enthalten sein "
-"soll"
+"sollen"
 
-#: ui/main.qml:124
+#: ui/main.qml:127
 #, kde-format
 msgctxt "@action:button Export shortcut scheme"
 msgid "Export"
 msgstr "Exportieren"
 
-#: ui/main.qml:221
+#: ui/main.qml:229
 #, kde-format
 msgctxt ""
 "@option:check accessible export shortcuts %1 is application/group name"
 msgid "Export %1"
 msgstr "%1 exportieren"
 
-#: ui/main.qml:231
+#: ui/main.qml:239
 #, kde-format
 msgctxt "@action:button %1 is the name of a custom command"
 msgid "Edit command for %1"
 msgstr "Befehl für „%1“ bearbeiten"
 
-#: ui/main.qml:258
+#: ui/main.qml:266
 #, kde-format
 msgctxt "@action:button %1 is the name of a shortcut category"
 msgid "Remove all shortcuts for %1"
 msgstr "Alle Kurzbefehle für „%1“ entfernen"
 
-#: ui/main.qml:280
+#: ui/main.qml:288
 #, kde-format
 msgctxt "@action:button"
 msgid "Undo deletion"
 msgstr "Löschen zurücknehmen"
 
-#: ui/main.qml:341
-#, fuzzy, kde-format
-#| msgid "No items matched the search terms"
+#: ui/main.qml:355
+#, kde-format
 msgctxt "@info:status placeholdermessage"
 msgid "No items matched the search terms"
-msgstr "Es passen keine Elemente auf die Suchbegriffe"
+msgstr "Zu den Suchbegriffen gibt es keine passenden Elemente"
 
-#: ui/main.qml:358
+#: ui/main.qml:372
 #, kde-format
 msgctxt "@info"
 msgid "These shortcuts will be deleted when changes are applied."
 msgstr ""
 "Diese Kurzbefehle werden gelöscht, wenn die Änderungen angewendet werden."
 
-#: ui/main.qml:362
+#: ui/main.qml:376
 #, kde-format
 msgctxt "@action:button"
 msgid "Undo"
 msgstr "Rückgängig"
 
-#: ui/main.qml:363
+#: ui/main.qml:377
 #, kde-format
 msgctxt "@action:button"
 msgid "Undo deleting shortcuts"
 msgstr "Löschen der Kurzbefehle zurücknehmen"
 
-#: ui/main.qml:399
-#, fuzzy, kde-format
-#| msgid "Select an item from the list to view its shortcuts here"
+#: ui/main.qml:413
+#, kde-format
 msgctxt "@info:usagetip placeholdermessage"
 msgid "Select an item from the list to view its shortcuts here"
 msgstr ""
-"Wählen Sie einen Eintrag aus der Liste, um seine Kurzbefehle hier anzuzeigen"
+"Wählen Sie einen Eintrag aus der Liste, um dessen Kurzbefehle hier anzuzeigen"
 
-#: ui/main.qml:412
-#, fuzzy, kde-format
-#| msgid "Export Shortcut Scheme"
+#: ui/main.qml:426
+#, kde-format
 msgctxt "@title:window dialog"
 msgid "Export Shortcut Scheme"
 msgstr "Kurzbefehl-Schema exportieren"
 
-#: ui/main.qml:412 ui/main.qml:553
-#, fuzzy, kde-format
-#| msgid "Import Shortcut Scheme"
+#: ui/main.qml:426 ui/main.qml:558
+#, kde-format
 msgctxt "@title:window dialog"
 msgid "Import Shortcut Scheme"
 msgstr "Kurzbefehl-Schema importieren"
 
-#: ui/main.qml:414
+#: ui/main.qml:428
 #, kde-format
 msgctxt "Template for file dialog"
 msgid "Shortcut Scheme (*.kksrc)"
 msgstr "Kurzbefehl-Schema (*.kksrc)"
 
-#: ui/main.qml:441
-#, fuzzy, kde-format
-#| msgid "Edit Command"
+#: ui/main.qml:455
+#, kde-format
 msgctxt "@title:window dialog"
 msgid "Edit Command"
 msgstr "Befehl bearbeiten"
 
-#: ui/main.qml:441
-#, fuzzy, kde-format
-#| msgid "Add Command"
+#: ui/main.qml:455
+#, kde-format
 msgctxt "@title:window dialog"
 msgid "Add Command"
 msgstr "Befehl hinzufügen"
 
-#: ui/main.qml:463
-#, fuzzy, kde-format
-#| msgid "Save"
+#: ui/main.qml:472
+#, kde-format
 msgctxt "@action:button in dialog, save changes to custom command"
 msgid "Save"
 msgstr "Speichern"
 
-#: ui/main.qml:463
-#, fuzzy, kde-format
-#| msgid "Add"
+#: ui/main.qml:472
+#, kde-format
 msgctxt "@action:button in dialog, add entry as new custom command"
 msgid "Add"
 msgstr "Hinzufügen"
 
-#: ui/main.qml:465
+#: ui/main.qml:474
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Save command"
 msgstr "Befehl speichern"
 
-#: ui/main.qml:466
+#: ui/main.qml:475
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Add command"
 msgstr "Befehl hinzufügen"
 
-#: ui/main.qml:492
-#, fuzzy, kde-format
-#| msgid "Enter a command or choose a script file:"
+#: ui/main.qml:497
+#, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter a command or choose a script file:"
 msgstr "Geben Sie einen Befehl ein oder wählen Sie eine Skriptdatei:"
 
-#: ui/main.qml:501
+#: ui/main.qml:506
 #, kde-format
 msgctxt "@label:textbox A shell command"
 msgid "Command:"
 msgstr "Befehl:"
 
-#: ui/main.qml:507
+#: ui/main.qml:512
 #, kde-format
 msgctxt "@label:textbox accessible"
 msgid "Command"
 msgstr "Befehl"
 
-#: ui/main.qml:514
+#: ui/main.qml:519
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose…"
 msgstr "Auswählen …"
 
-#: ui/main.qml:515
+#: ui/main.qml:520
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Choose script file"
 msgstr "Skriptdatei auswählen"
 
-#: ui/main.qml:523
+#: ui/main.qml:528
 #, kde-format
 msgctxt "@label:textfield Human-readable name given to a shell command"
 msgid "Name:"
 msgstr "Name:"
 
-#: ui/main.qml:524
+#: ui/main.qml:529
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter name here"
 msgstr "Namen hier eingeben"
 
-#: ui/main.qml:536
+#: ui/main.qml:541
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose Script File"
 msgstr "Skriptdatei auswählen"
 
-#: ui/main.qml:538
+#: ui/main.qml:543
 #, kde-format
 msgctxt ""
 "Filename filters for file dialog. Do not translate any of the filename "
@@ -431,41 +415,37 @@ msgctxt ""
 msgid "Script files (.sh, .bash, .zsh, etc.) (*.*sh)"
 msgstr "Skript-Dateien (.sh, .bash, .zsh, etc.) (*.*sh)"
 
-#: ui/main.qml:561
-#, fuzzy, kde-format
-#| msgid "Select the scheme to import:"
+#: ui/main.qml:566
+#, kde-format
 msgctxt "@label:listbox regarding 'shortcut schemes'"
 msgid "Select the scheme to import:"
-msgstr "Zu importierendes Schema auswählen:"
+msgstr "Wählen Sie das zu importierende Schema aus:"
 
-#: ui/main.qml:580
-#, fuzzy, kde-format
-#| msgid "Custom Scheme"
+#: ui/main.qml:585
+#, kde-format
 msgctxt "@item:inlistbox regarding 'shortcut schemes'"
 msgid "Custom Scheme"
-msgstr "Eigenes Schema"
+msgstr "Benutzerdefiniertes Schema"
 
-#: ui/main.qml:588
-#, fuzzy, kde-format
-#| msgid "Select File…"
+#: ui/main.qml:593
+#, kde-format
 msgctxt "@action:button"
 msgid "Select File…"
 msgstr "Datei auswählen …"
 
-#: ui/main.qml:588
-#, fuzzy, kde-format
-#| msgid "Import"
+#: ui/main.qml:593
+#, kde-format
 msgctxt "@action:button import shortcut scheme"
 msgid "Import"
 msgstr "Importieren"
 
-#: ui/main.qml:590
+#: ui/main.qml:595
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Select shortcut scheme file"
 msgstr "Kurzbefehl-Schemadatei auswählen"
 
-#: ui/main.qml:591
+#: ui/main.qml:596
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Add shortcut scheme"
@@ -484,8 +464,7 @@ msgid "Expand to configure shortcuts"
 msgstr "Ausklappen, um Kurzbefehle einzurichten"
 
 #: ui/ShortcutActionDelegate.qml:38
-#, fuzzy, kde-format
-#| msgid "Editing shortcut: %1"
+#, kde-format
 msgctxt "@info:whatsthis accessible name %1 is shortcut label (not sequence)"
 msgid "Editing shortcut: %1"
 msgstr "Bearbeiten des Kurzbefehls: %1"
@@ -498,71 +477,63 @@ msgctxt ""
 msgid "%1:"
 msgstr "%1:"
 
-#: ui/ShortcutActionDelegate.qml:88
-#, fuzzy, kde-format
-#| msgid "No active shortcuts"
+#: ui/ShortcutActionDelegate.qml:85
+#, kde-format
 msgctxt "@info:status"
 msgid "No active shortcuts"
 msgstr "Keine aktiven Kurzbefehle"
 
-#: ui/ShortcutActionDelegate.qml:134
-#, fuzzy, kde-format
-#| msgctxt "%1 decides if singular or plural will be used"
-#| msgid "Default shortcut"
-#| msgid_plural "Default shortcuts"
+#: ui/ShortcutActionDelegate.qml:135
+#, kde-format
 msgctxt "@title:column %1 decides if singular or plural will be used"
 msgid "Default shortcut"
 msgid_plural "Default shortcuts"
 msgstr[0] "Standard-Kurzbefehl"
 msgstr[1] "Standard-Kurzbefehle"
 
-#: ui/ShortcutActionDelegate.qml:136
-#, fuzzy, kde-format
-#| msgid "No default shortcuts"
+#: ui/ShortcutActionDelegate.qml:137
+#, kde-format
 msgctxt "@label for shortcut with no default bindings"
 msgid "No default shortcuts"
 msgstr "Keine Standard-Kurzbefehle"
 
-#: ui/ShortcutActionDelegate.qml:145
-#, fuzzy, kde-format
-#| msgid "Default shortcut %1 is enabled."
+#: ui/ShortcutActionDelegate.qml:146
+#, kde-format
 msgctxt "@info:whatsthis accessible name"
 msgid "Default shortcut %1 is enabled."
 msgstr "Der Standard-Kurzbefehl %1 ist aktiviert."
 
-#: ui/ShortcutActionDelegate.qml:145
-#, fuzzy, kde-format
-#| msgid "Default shortcut %1 is disabled."
+#: ui/ShortcutActionDelegate.qml:146
+#, kde-format
 msgctxt "@info:whatsthis accessible name"
 msgid "Default shortcut %1 is disabled."
 msgstr "Der Standard-Kurzbefehl %1 ist deaktiviert."
 
-#: ui/ShortcutActionDelegate.qml:168
-#, fuzzy, kde-format
-#| msgid "Custom shortcuts"
+#: ui/ShortcutActionDelegate.qml:169
+#, kde-format
 msgctxt "@title:column"
 msgid "Custom shortcuts"
-msgstr "Eigene Kurzbefehle"
+msgstr "Benutzerdefinierte Kurzbefehle"
 
-#: ui/ShortcutActionDelegate.qml:195
+#: ui/ShortcutActionDelegate.qml:196
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Delete shortcut"
 msgstr "Kurzbefehl löschen"
 
-#: ui/ShortcutActionDelegate.qml:206
+#: ui/ShortcutActionDelegate.qml:207
 #, kde-format
 msgctxt "@action:button Add custom shortcut"
 msgid "Add…"
 msgstr "Hinzufügen …"
 
-#: ui/ShortcutActionDelegate.qml:207
+#: ui/ShortcutActionDelegate.qml:208
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Add custom shortcut"
 msgstr "Eigenen Kurzbefehl hinzufügen"
 
-#: ui/ShortcutActionDelegate.qml:243
+#: ui/ShortcutActionDelegate.qml:244
 #, kde-format
 msgctxt "@action:button accessible"
 msgid "Cancel capturing shortcut"
