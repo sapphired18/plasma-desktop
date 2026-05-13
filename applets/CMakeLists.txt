@@ -3,7 +3,6 @@ plasma_install_package(activitypager org.kde.plasma.activitypager)
 add_subdirectory(kicker)
 add_subdirectory(kickoff)
 add_subdirectory(trash)
-add_subdirectory(trashNonSymbolic)
 
 add_subdirectory(taskmanager)
 add_subdirectory(window-list)
